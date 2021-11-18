@@ -14,6 +14,7 @@ namespace InternEfConsole
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //https://www.connectionstrings.com/mysql/
+            // pwd laf mat khau luc cai dat mysql, 
             optionsBuilder.UseMySQL(@"Server=localhost;Database=csharpsample;Uid=root;Pwd=;");
         }
         public DbSet<Student> Students { get; set; }
