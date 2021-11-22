@@ -9,4 +9,9 @@ namespace InternEfConsole
  
 
     }
+
+    public class Classes
+    {
+
+    }
 }
