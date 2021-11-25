@@ -8,6 +8,10 @@ using System.Linq;
 
 namespace InternEfConsole
 {
+    class ExceptionStudentNotValid : Exception
+    {
+
+    }
     class StudentRepository
     {
         public bool CreateStudent(string IdStudent, string NameStudent)//them hoc sinh
@@ -66,6 +70,7 @@ namespace InternEfConsole
             }
             catch (Exception e)
             {
+                throw e;
                 Console.WriteLine(e.Message);
                 return false;
             }

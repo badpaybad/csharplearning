@@ -54,20 +54,21 @@ namespace InternEfConsole
                 var ListStudents = db.students.ToList();
                 var ListClasses = db.classes.ToList();
                 var ListStudentClasses = db.studentclasses.ToList();
-                var kq = from sc in ListStudentClasses
+
+                var kq = from sc in ListStudentClasses where sc.ClassID==IdClass
                          join s in ListStudents on sc.StudentID equals s.StudentID
                          join cl in ListClasses on sc.ClassID equals cl.ClassID
                          select new
                          {
                              StudentName = s.StudentName,
                              ClassName = cl.ClassName
-                         };
-                foreach (var a in kq)
+                         } ;
+                
+                var temp = kq.ToList();
+                foreach (var a in temp)
                 {
                     Console.WriteLine($"ClassName: {a.ClassName}, StudentName: {a.StudentName}");
                 }
-
-
             }
         }
     }
