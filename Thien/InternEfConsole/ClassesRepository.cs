@@ -9,66 +9,81 @@ namespace InternEfConsole
 {
     class ClassesRepository
     {
-       public bool AddStudentToClass(string IdClass,string IdStudent)
-        {          
+        public bool CreateClasses(string IdClass, string NameClass)//them lop
+        {
+            try
+            {
                 using (var db = new Context())
                 {
-                    var classes = db.classes.Where(i => i.ClassID == IdClass).FirstOrDefault();
-                    var student = db.students.Where(i => i.StudentID == IdStudent).FirstOrDefault();
-                    if(classes != null && student !=null)
-                    {
-                        db.Add(new StudentClasses { ClassID = IdClass, StudentID = IdStudent });
-                        db.SaveChanges();
-                        return true;
-                    }    
-                    else
-                    {                    
-                    return false;
-                    }                        
-                }                      
-        }
-        public bool DeleteStudentinClass(string IdClass, string IdStudent)
-        {
-            using(var db = new Context())
-            {
-                var classes = db.classes.Where(i => i.ClassID == IdClass).FirstOrDefault();
-                var student = db.students.Where(i => i.StudentID == IdStudent).FirstOrDefault();
-                if(classes != null && student != null)
-                {
-                    var deletestudent = db.studentclasses.Where(i => i.ClassID == IdClass && i.StudentID == IdStudent).FirstOrDefault();
-                    db.studentclasses.Remove(deletestudent);
+                    db.Add(new Classes {ClassID=IdClass,ClassName=NameClass});
                     db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+
+        }
+        public bool ReadClasses(string IdClass) //in ra lop
+        {
+            using (var db = new Context())
+            {
+                var classe = db.classes.Where(i => i.ClassID == IdClass).FirstOrDefault();
+                if (classe != null)
+                {                    
                     return true;
                 }
                 else
                 {
                     return false;
                 }
-            }    
-
+            }
         }
-        public void SelectStudentsInClass(string IdClass)//lay hoc sinh theo lop
-        {                                                   //lỗi
-            using(var db = new Context())
-            {
-                var ListStudents = db.students.ToList();
-                var ListClasses = db.classes.ToList();
-                var ListStudentClasses = db.studentclasses.ToList();
 
-                var kq = from sc in ListStudentClasses where sc.ClassID==IdClass
-                         join s in ListStudents on sc.StudentID equals s.StudentID
-                         join cl in ListClasses on sc.ClassID equals cl.ClassID
-                         select new
-                         {
-                             StudentName = s.StudentName,
-                             ClassName = cl.ClassName
-                         } ;
-                
-                var temp = kq.ToList();
-                foreach (var a in temp)
+        public bool UpdateClasses(string IdClass, string NameClass) //update ten lop
+        {
+            try
+            {
+                using (var db = new Context())
                 {
-                    Console.WriteLine($"ClassName: {a.ClassName}, StudentName: {a.StudentName}");
+                    var classe = db.classes.Where(i => i.ClassID == IdClass).FirstOrDefault();
+                    if (classe != null)
+                    {
+                        classe.ClassName = NameClass;
+                        db.SaveChanges();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+        }
+        public bool DeleteClasses(string IdClass)//xoa lop
+        {
+            try
+            {
+                using (var db = new Context())
+                {
+                    var classe = db.classes.Where(i => i.ClassID == IdClass).FirstOrDefault();
+                    db.classes.Remove(classe);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
             }
         }
     }
