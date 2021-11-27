@@ -7,6 +7,12 @@ namespace InternEfConsole
     {
         static void Main(string[] args)
         {
+
+            var mongodb = new TestMongoDbContext();
+
+            mongodb.Abcs.Insert(new Abc { Id = new MongoDB.Bson.ObjectId(),
+            StudentName="Nguyen phan du"});
+
             //https://www.tektutorialshub.com/entity-framework-core/ef-core-console-application/
             Console.WriteLine("Hello World!");
             var db = new SchoolContext();
