@@ -22,9 +22,9 @@ namespace NetCoreApi.Controllers
 
 
         [HttpPost("add-student-to-class")]
-        public bool AddStudentToClass(Guid studentId, Guid classId)
+        public async Task<bool> AddStudentToClass(Guid studentId, Guid classId)
         {
-            return studentRepository.AddStudentToClass(studentId, classId);
+            return await studentRepository.AddStudentToClass(studentId, classId);
         }
 
         [HttpPost("get-student-of-class")]

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using NetCoreApi;
+using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 namespace NetCoreApi.Models
 {
     public class RepositoryStudent
@@ -110,19 +112,19 @@ namespace NetCoreApi.Models
                 return false;
             }
         }
-        public bool AddStudentToClass(Guid studentId, Guid classId)
+        public async Task<bool> AddStudentToClass(Guid studentId, Guid classId)
         {
             try
             {
                 using (var db = new MongoDBContext())
                 {
-                    var student = db.Students.Where(x => x.Id == studentId).FirstOrDefault();
-                    var classInfo = db.Classes.Where(x => x.Id == classId).FirstOrDefault();
+                    var student = await db.Students.Where(x => x.Id == studentId).FirstOrDefaultAsync();
+                    var classInfo = await db.Classes.Where(x => x.Id == classId).FirstOrDefaultAsync();
                     if(student ==null || classInfo==null)
                     {
                         return false;
                     }
-                    var studentClass = db.ClassStudents.Where(x => x.IdStudent == studentId && x.IdClass == classId).FirstOrDefault();
+                    var studentClass = await db.ClassStudents.Where(x => x.IdStudent == studentId && x.IdClass == classId).FirstOrDefaultAsync();
                     if(studentClass!=null)
                     {
                         return true;
@@ -133,7 +135,7 @@ namespace NetCoreApi.Models
                         IdClass = classId,
                         IdStudent=studentId
                     };
-                    db.ClassStudents.Collection.InsertOne(newStudentClass);
+                    await db.ClassStudents.Collection.InsertOneAsync(newStudentClass);
                 }
                 return true;
             }
