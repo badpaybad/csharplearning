@@ -1,5 +1,5 @@
-﻿using MongoDB.Bson;
-using RobotCloud.Core.Entities;
+﻿using RobotCloud.Core.Entities;
+using RobotCloud.CoreMongoDb;
 using RobotCloud.CoreMongoDb.MNVN;
 using System;
 using System.Collections.Generic;
@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Api_async_mongo.Models
 {
-    public class Student : /*IEntity*/  IEntityUseObjectId
+    public class Student : IEntity 
     {
-       public Guid Id { get; set; }
+       //public Guid Id { get; set; }
         public string Name { get; set; }
-        ObjectId IEntityUseObjectId.Id { get; set; }
+  
     }
     public class ListStudent
     {

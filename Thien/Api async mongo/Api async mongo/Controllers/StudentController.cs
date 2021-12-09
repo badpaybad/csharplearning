@@ -6,46 +6,33 @@ using System.Linq;
 using System.Threading.Tasks;
 using Api_async_mongo.Models;
 using MongoDB.Driver;
-using Microsoft.EntityFrameworkCore;
+using MongoDB.Driver.Linq;
 
 namespace Api_async_mongo.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class StudentController : ControllerBase
     {
-        [HttpPost]
-        [Route("create-student")]
-        public async Task<IEnumerable<string>> CreadStudent([FromBody] Student s)//json
+        Models.StudentRepo sr;
+            public StudentController()
         {
-            try
-            {
-                using (var db = new Context())
-                {
-                    var student = new Student();
-                    student.Id = Guid.NewGuid();
-                    student.Name = s.Name;
-                    await db.Students.Collection.InsertOneAsync(student);
-                    return new List<string>() { student.Id.ToString(), student.Name };
-                }
-            }
-            catch (Exception)
-            {
-                return null;
-            }           
+            sr = new StudentRepo();
         }
 
         [HttpPost]
-        [Route("create-liststudent")]
-        public async Task<string> ListStudent([FromBody] ListStudent s)
+        [Route("creadstudentlist")]
+        public async Task< String> CreadStudent1([FromBody] ListStudent s)//json
         {
+
             List<Student> students = new List<Student>();
-            foreach(var item in s.liststudent)
+            foreach (var item in s.liststudent)
             {
                 var student = new Student();
                 student.Id = Guid.NewGuid();
                 student.Name = item.Name;
-                students.Add(student);
+                students.Add(student);//thêm student vào list students
             }
             var db = new Context();
             await db.Students.Collection.InsertManyAsync(students);
@@ -53,60 +40,31 @@ namespace Api_async_mongo.Controllers
         }
 
         [HttpPost]
-        [Route("read-student")]
-        public async Task<IEnumerable<string>> ReadStudent([FromBody] Student s)
+        [Route("creadstudent")]
+        public async Task<Student> CreateStudent(Student s)
         {
-            try
-            {
-                using (var db = new Context())
-                {
-                    var student = await db.Students.Where(i => i.Id == s.Id).FirstOrDefaultAsync();
-                    return new List<string> { s.Id.ToString(), s.Name };
-                }
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-
+            return await sr.CreadStudent(s);
         }
 
+        [Route("readstudent")]
         [HttpPost]
-        [Route("update-student")]
-        public async Task<IEnumerable<string>> UpdateStudent([FromBody ]Student s)
+        public async Task<Student> ReadStudent(Student s)
         {
-            try
-            {
-                using (var db = new Context())
-                {
-                    var student = await db.Students.Where(i => i.Id == s.Id).FirstOrDefaultAsync();
-                    student.Name = s.Name;
-                    return new List<string> { s.Id.ToString(), s.Name };
-                }
-            }
-            catch (Exception)
-            {
-                return null;
-            }
+            return await sr.ReadStudent(s);
         }
 
+        [Route("updatestudent")]
         [HttpPost]
-        [Route("delete-student")]
-        public async Task<string> DeleteStudent([FromBody]Student s)
+        public async Task<Student> UpdateStudent(Student s)
         {
-            try
-            {
-                using (var db = new Context())
-                {
-                    var student = await db.Students.Where(i => i.Id == s.Id).FirstOrDefaultAsync();
-                    await db.Students.Delete(student);
-                    return "ok";
-                }
-            }
-            catch (Exception)
-            {
-                return "false";
-            }
+            return await sr.UpdateStudent(s);
+        }
+
+        [Route("deletestudent")]
+        [HttpPost]
+       public async Task<string> DeleteStudent(Student s)
+        {
+            return  await sr.DeleteStudent(s);
         }
 
     }
