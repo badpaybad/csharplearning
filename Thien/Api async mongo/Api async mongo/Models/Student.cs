@@ -16,6 +16,6 @@ namespace Api_async_mongo.Models
     }
     public class ListStudent
     {
-        public List<Student> liststudent { get; set; } = new List<Student>();
+        public List<Student> StudentList { get; set; } = new List<Student>();
     }
 }

@@ -9,7 +9,7 @@ namespace Api_async_mongo.Models
 {
     public class StudentRepo
     {
-        public async Task<Student> CreadStudent( Student s)//json
+        public async Task<Student> CreadStudent( Student s)
         {
             //var student = new Student { Id1 = Guid.NewGuid(), Name = s.Name };
             var student = new Student();
@@ -21,14 +21,30 @@ namespace Api_async_mongo.Models
             //return new List<string>() { student.Id.ToString(), student.Name };
             return student; 
         }
-        public async Task<Student> ReadStudent( Student s) //loi async
+
+        public async Task<string> CreadStudentList( ListStudent s)
+        {
+
+            List<Student> students = new List<Student>();
+            foreach (var item in s.StudentList)
+            {
+                var student = new Student();
+                student.Id = Guid.NewGuid();
+                student.Name = item.Name;
+                students.Add(student);
+            }
+            var db = new Context();
+            await db.Students.Collection.InsertManyAsync(students);
+            return "ok";
+        }
+        public async Task<Student> ReadStudent( Student s)
         {
             var db = new Context();
             var student = await db.Students.Where(i => i.Id == s.Id).FirstOrDefaultAsync();
             return student;
 
         }
-        public async Task<Student> UpdateStudent( Student s)//loi async
+        public async Task<Student> UpdateStudent( Student s)
         {
             var db = new Context();
             var student = await db.Students.Where(i => i.Id == s.Id).FirstOrDefaultAsync();
@@ -36,7 +52,7 @@ namespace Api_async_mongo.Models
             await db.Students.Update(student);
             return student;
         }
-        public async Task<string> DeleteStudent(Student s) //loi async
+        public async Task<string> DeleteStudent(Student s) 
         {
             var db = new Context();
             var student = await db.Students.Where(i => i.Id == s.Id).FirstOrDefaultAsync();

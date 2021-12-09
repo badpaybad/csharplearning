@@ -10,62 +10,74 @@ using MongoDB.Driver.Linq;
 
 namespace Api_async_mongo.Controllers
 {
-    
+
     [Route("api/[controller]")]
     [ApiController]
     public class StudentController : ControllerBase
     {
         Models.StudentRepo sr;
-            public StudentController()
+        public StudentController()
         {
             sr = new StudentRepo();
         }
 
         [HttpPost]
-        [Route("creadstudentlist")]
-        public async Task< String> CreadStudent1([FromBody] ListStudent s)//json
-        {
-
-            List<Student> students = new List<Student>();
-            foreach (var item in s.liststudent)
-            {
-                var student = new Student();
-                student.Id = Guid.NewGuid();
-                student.Name = item.Name;
-                students.Add(student);//thêm student vào list students
-            }
-            var db = new Context();
-            await db.Students.Collection.InsertManyAsync(students);
-            return "ok";
-        }
-
-        [HttpPost]
         [Route("creadstudent")]
-        public async Task<Student> CreateStudent(Student s)
+        public async Task<ApiResponse<Student>> CreadStudent(Student s)
         {
-            return await sr.CreadStudent(s);
+            try
+            {
+                var student = await sr.CreadStudent(s);
+                return new ApiResponse<Student> { Status = 1, Message = "Done" };
+            }
+            catch (Exception e)
+            {
+                return new ApiResponse<Student> { Status = 0, Message = "loi" };
+            }
         }
-
+        [HttpPost]
         [Route("readstudent")]
-        [HttpPost]
-        public async Task<Student> ReadStudent(Student s)
+        public async Task<ApiResponse<Student>> ReadStudent(Student s)
         {
-            return await sr.ReadStudent(s);
+            try
+            {
+                var student = await sr.ReadStudent(s);
+                return new ApiResponse<Student> { Status = 1, Message = "Done", Data = student };
+            }
+            catch (Exception e)
+            {
+                return new ApiResponse<Student> { Status = 0, Message = "loi" };
+            }
         }
 
+        [HttpPost]
         [Route("updatestudent")]
-        [HttpPost]
-        public async Task<Student> UpdateStudent(Student s)
+        public async Task<ApiResponse<Student>> UpdateStudent(Student s)
         {
-            return await sr.UpdateStudent(s);
+            try
+            {
+                var student = await sr.UpdateStudent(s);
+                return new ApiResponse<Student> { Status = 1, Message = "Done" };
+            }
+            catch (Exception e)
+            {
+                return new ApiResponse<Student> { Status = 0, Message = "loi" };
+            }
         }
 
+        [HttpPost]
         [Route("deletestudent")]
-        [HttpPost]
-       public async Task<string> DeleteStudent(Student s)
+        public async Task<ApiResponse<string>> DeleteStudent(Student s)
         {
-            return  await sr.DeleteStudent(s);
+            try
+            {
+                var student = sr.DeleteStudent(s);
+                return new ApiResponse<string> { Status = 1, Message = "Done" };
+            }
+            catch (Exception e)
+            {
+                return new ApiResponse<string> { Status = 0, Message = "loi" };
+            }
         }
-
     }
 }
