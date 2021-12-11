@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Api_async_mongo.Repo;
 using Api_async_mongo.Models;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
@@ -15,7 +16,7 @@ namespace Api_async_mongo.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
-        Models.StudentRepo sr;
+        Repo.StudentRepo sr;
         public StudentController()
         {
             sr = new StudentRepo();
@@ -23,16 +24,48 @@ namespace Api_async_mongo.Controllers
 
         [HttpPost]
         [Route("creadstudent")]
-        public async Task<ApiResponse<Student>> CreadStudent(Student s)
+        public async Task<ApiResponse<bool>> CreadStudent(Student s)
         {
             try
             {
-                var student = await sr.CreadStudent(s);
-                return new ApiResponse<Student> { Status = 1, Message = "Done" };
+                /* var student = await sr.CreadStudent(s);
+
+                 if (student.Status == 1)
+                 {
+                     return new ApiResponse<Student> { Status = 1, Message = student.Message };
+                 }
+                 else
+                 {
+                     return new ApiResponse<Student> { Status = 0, Message = student.Message };
+                 }*/
+                return await sr.CreadStudent(s);
             }
             catch (Exception e)
             {
-                return new ApiResponse<Student> { Status = 0, Message = "loi" };
+                return new ApiResponse<bool> { Status = 0, Message = "có lỗi xảy ra", Data = false };
+            }
+        }
+
+        [HttpPost]
+        [Route("creadstudentlist")]
+        public async Task<ApiResponse<bool>> CreadStudentList(ListStudent s)
+        {
+            try
+            {
+                var crlist = await sr.CreadStudentList(s);
+                if (crlist == true)
+                {
+                    return new ApiResponse<bool> { Status = 1, Message = "thêm thành công", Data = true };
+                }
+                else
+                {
+                    return new ApiResponse<bool> { Status = 1, Message = "có lỗi xảy ra", Data = false };
+                }
+
+            }
+            catch (Exception e)
+            {
+                return new ApiResponse<bool> { Status = 0, Message = "có lỗi xảy ra", Data = false };
             }
         }
         [HttpPost]
@@ -46,37 +79,46 @@ namespace Api_async_mongo.Controllers
             }
             catch (Exception e)
             {
-                return new ApiResponse<Student> { Status = 0, Message = "loi" };
+                return new ApiResponse<Student> { Status = 0, Message = "loi", Data = null };
+
             }
         }
 
         [HttpPost]
         [Route("updatestudent")]
-        public async Task<ApiResponse<Student>> UpdateStudent(Student s)
+        public async Task<ApiResponse<bool>> UpdateStudent(Student s)
         {
             try
             {
                 var student = await sr.UpdateStudent(s);
-                return new ApiResponse<Student> { Status = 1, Message = "Done" };
+                if(student == false)
+                {
+                    return new ApiResponse<bool> { Status = 0, Message = "có lỗi xảy ra", Data = false };
+                }
+                return new ApiResponse<bool> { Status = 1, Message = "update thành công", Data = true };
             }
             catch (Exception e)
             {
-                return new ApiResponse<Student> { Status = 0, Message = "loi" };
+                return new ApiResponse<bool> { Status = 0, Message = "có lỗi xảy ra", Data = false };
             }
         }
 
         [HttpPost]
         [Route("deletestudent")]
-        public async Task<ApiResponse<string>> DeleteStudent(Student s)
+        public async Task<ApiResponse<bool>> DeleteStudent(Student s)
         {
             try
             {
-                var student = sr.DeleteStudent(s);
-                return new ApiResponse<string> { Status = 1, Message = "Done" };
+                var student = await sr.DeleteStudent(s);
+                if(student == false)
+                {
+                    return new ApiResponse<bool> { Status = 0, Message = "có lỗi xảy ra", Data = false };
+                }    
+                return new ApiResponse<bool> { Status = 1, Message = "xóa thành công", Data = true };
             }
             catch (Exception e)
             {
-                return new ApiResponse<string> { Status = 0, Message = "loi" };
+                return new ApiResponse<bool> { Status = 0, Message = "có lỗi xảy ra" , Data = false };
             }
         }
     }

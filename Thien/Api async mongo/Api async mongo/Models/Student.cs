@@ -11,7 +11,7 @@ namespace Api_async_mongo.Models
     public class Student : IEntity 
     {
        //public Guid Id { get; set; }
-        public string Name { get; set; }
+        public string NameStudent { get; set; }
   
     }
     public class ListStudent

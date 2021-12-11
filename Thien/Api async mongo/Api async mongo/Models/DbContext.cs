@@ -12,5 +12,7 @@ namespace Api_async_mongo.Models
     {
         public Context() : base("localhost", "TestApi2", "user", "123123") { }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Classes> Classess { get; set; }
+        public DbSet<StudentClasses> StudentClassess { get; set; }
     }
 }
