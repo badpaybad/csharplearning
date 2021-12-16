@@ -26,6 +26,8 @@ namespace AuthSample.Apis
                     return string.Empty;
                 }
 
+                //JwtTokenGenerator.GenerateToken
+
                 var token = Guid.NewGuid().ToString();
 
                 HttpContext.Session.SetString(token, JsonConvert.SerializeObject(existed));

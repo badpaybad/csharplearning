@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="RobotCloud.Core" Version="1.0.0" />
     <PackageReference Include="RobotCloud.CoreMongoDb" Version="1.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.0" />
   </ItemGroup>
 
 
