@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 
 namespace AuthSample.Apis
@@ -13,42 +14,45 @@ namespace AuthSample.Apis
 
     public class AutheticationController : ControllerBase
     {
+        static Dictionary<string, string> _authDb = new Dictionary<string, string>() {
+            {"dunp","123456" }
+        };
+
+        static Dictionary<string, DateTime> _tokenDb = new Dictionary<string, DateTime>();
 
         [HttpPost]
         [Route("Login")]
-        public string Login(string uid, string pwd)
+        public string Login([FromForm] string uid,[FromForm] string pwd)
         {
-            using (var db = new AuthDbContext())
+            _authDb.TryGetValue(uid, out var dbpwd);
+
+            if (dbpwd != pwd)
             {
-                var existed = db.Users.Where(i => i.Username == uid && i.Password == pwd).FirstOrDefault();
-                if (existed == null)
-                {
-                    return string.Empty;
-                }
+                return string.Empty;
+            }
 
-                //JwtTokenGenerator.GenerateToken
+            var acls = new List<string>();
 
-                var token = Guid.NewGuid().ToString();
+            //vào db lay acls theo uid
+            acls.Add("DoSth1");
 
-                HttpContext.Session.SetString(token, JsonConvert.SerializeObject(existed));
+            var token = JwtTokenGenerator.GenerateToken(uid, uid, uid, uid, acls);
 
-                db.TokenSesssions.Insert(new TokenSesssion
-                {
-                    UserId = existed.UserId,
-                    Username = existed.Username,
-                    Tokens = token,
-                    ExpiredAt = DateTime.Now.AddHours(3)
-                });
+            _tokenDb[token] = DateTime.Now.AddDays(30);
+
 
                 return token;
             }
-        }
+        
 
         [HttpPost]
-        [Route("Logout")]
-        [SampleAuthorization()]
-        public string Logout()
+        [Route("DoSth")]
+        [SampleAuthorization("DoSth")]
+
+        public string DoSth()
         {
+         
+            //do nghiep vu
 
             return "ok";
         }
@@ -56,7 +60,8 @@ namespace AuthSample.Apis
 
         [HttpPost]
         [Route("ChangeUserFullname")]
-        [SampleAuthorization("account")]
+
+        [SampleAuthorization("ChangeUserFullname")]
         public string ChangeUserFullname(string fullname)
         {
             var user = (User)HttpContext.Items["currentUser"];
