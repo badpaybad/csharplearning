@@ -2,6 +2,10 @@
 
 https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 
+# ide vs code: 
+
+https://code.visualstudio.com/download
+
 # ref
 
 
