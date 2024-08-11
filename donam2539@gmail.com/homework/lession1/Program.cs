@@ -23,8 +23,6 @@ int bai1(int n)
     return r;
 }
 
-Console.WriteLine("Bai 1: " + bai1(int.Parse(args[0])));
-
 double bai2(int n)
 {
     double r = 0;
@@ -35,9 +33,6 @@ double bai2(int n)
     }
     return r;
 }
-
-Console.WriteLine("Bai 2: " + bai2(int.Parse(args[0])));
-
 
 double bai3(int n)
 {
@@ -50,6 +45,86 @@ double bai3(int n)
     return r;
 }
 
+double bai4(int n)
+{
+    double r = 0;
 
+    for (var i = 1; i <= n; i++)
+    {
+        r += (double)1 / (2 * i);
+    }
+    return r;
+}
+
+double bai5(int n)
+{
+    double r = 0;
+
+    for (var i = 0; i < n; i++)
+    {
+        r += (double)1 / ((2 * i) + 1);
+    }
+    return r;
+}
+
+double bai6(int n)
+{
+    double r = 0;
+
+    for (var i = 1; i <= n; i++)
+    {
+        r += (double)1 / (i * (i + 1));
+    }
+    return r;
+}
+
+double bai7(int n)
+{
+    double r = 0;
+
+    for (var i = 1; i <= n; i++)
+    {
+        r += (double)i / (i + 1);
+    }
+    return r;
+}
+
+double bai8(int n)
+{
+    double r = 0;
+
+    for (var i = 0; i < n; i++)
+    {
+        r += (double)((2 * i) + 1) / ((2 * i) + 2);
+    }
+    return r;
+}
+
+int bai9(int n)
+{
+    int r = 1;
+
+    for (var i = 1; i <= n; i++)
+    {
+        r *= i;
+    }
+    return r;
+}
+
+double bai10(int x, int n)
+{
+    double r = Math.Pow(x, n);
+    return r;
+}
+
+
+Console.WriteLine("Bai 1: " + bai1(int.Parse(args[0])));
+Console.WriteLine("Bai 2: " + bai2(int.Parse(args[0])));
 Console.WriteLine("Bai 3: " + bai3(int.Parse(args[0])));
-
+Console.WriteLine("Bai 4: " + bai4(int.Parse(args[0])));
+Console.WriteLine("Bai 5: " + bai5(int.Parse(args[0])));
+Console.WriteLine("Bai 6: " + bai6(int.Parse(args[0])));
+Console.WriteLine("Bai 7: " + bai7(int.Parse(args[0])));
+Console.WriteLine("Bai 8: " + bai8(int.Parse(args[0])));
+Console.WriteLine("Bai 9: " + bai9(int.Parse(args[0])));
+Console.WriteLine("Bai 10: " + bai10(int.Parse(args[0]), int.Parse(args[1])));
