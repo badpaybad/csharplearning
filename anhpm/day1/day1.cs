@@ -86,9 +86,26 @@ namespace day1
             Console.WriteLine($"{ps[0]} {ps[1]}");
             return sumFraction(ps, sumFractionExpow(x, n - 1));
         }
+        //bai 12
 
+        static int sum12(int x, int n)
+        {
+            if (n == 0) return 1;
+            if (n == 1) return x;
+            return expotential(x, n) + sum12(x, n - 1);
+        }
+        //bai 19
+        static float sum19(int x, int n)
+        {
+            if (n == 1) return expotential(x, 3) /multiplication(3);
+            if (n == 0) return x;
+            k = 2 * n + 1;
+            return expotential(x, k) / multiplication(k) + sum19(x,n-1);
+        }
+        static float multiplication( int n)
+        {
+            if (n == 1) return 1;
+            return n * multiplication(n - 1);
+        }
     }
-
-
-
 }
