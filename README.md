@@ -1,5 +1,9 @@
 # csharplearning
 
+Lộ trình học : https://kidsonlineeduvn-my.sharepoint.com/:w:/r/personal/dunp_airobotic_vn/_layouts/15/Doc.aspx?sourcedoc=%7B37BE8D27-7E53-4477-A0A9-8E6974F91FE1%7D&file=H%C6%B0%E1%BB%9Bng%20d%E1%BA%ABn%20h%E1%BB%8Dc%20C%23.docx&action=default&mobileredirect=true
+
+Link bài tập để thực hành ngôn ngữ : https://kidsonlineeduvn-my.sharepoint.com/:b:/g/personal/dunp_omt_vn/Ec8dPSurADxNjNatQW0HnhQBnJXCkJ3FHvH_I2gXb5L4ig?e=LTv6t3  
+
 # session 1
 
 Objectives:
