@@ -117,6 +117,55 @@ double bai10(int x, int n)
     return r;
 }
 
+int bai11(int n)
+{
+    int r = 0;
+
+    for (var i = 1; i <= n; i++)
+    {
+        int sum = 1;
+        for (int j = 1; j <= i; j++)
+        {
+            sum *= j;
+        }
+        r += sum;
+    }
+    return r;
+}
+
+double bai12(int x, int n)
+{
+    double r = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        r += Math.Pow(x, i);
+    }
+
+    return r;
+}
+
+double bai13(int x, int n)
+{
+    double r = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        r += Math.Pow(x, 2 * i);
+    }
+
+    return r;
+}
+
+double bai14(int x, int n)
+{
+    double r = 0;
+    for (int i = 0; i < n; i++)
+    {
+        r += Math.Pow(x, (2 * i + 1));
+    }
+
+    return r;
+}
+
 
 Console.WriteLine("Bai 1: " + bai1(int.Parse(args[0])));
 Console.WriteLine("Bai 2: " + bai2(int.Parse(args[0])));
@@ -128,3 +177,7 @@ Console.WriteLine("Bai 7: " + bai7(int.Parse(args[0])));
 Console.WriteLine("Bai 8: " + bai8(int.Parse(args[0])));
 Console.WriteLine("Bai 9: " + bai9(int.Parse(args[0])));
 Console.WriteLine("Bai 10: " + bai10(int.Parse(args[0]), int.Parse(args[1])));
+Console.WriteLine("Bai 11: " + bai11(int.Parse(args[0])));
+Console.WriteLine("Bai 12: " + bai12(int.Parse(args[0]), int.Parse(args[1])));
+Console.WriteLine("Bai 13: " + bai13(int.Parse(args[0]), int.Parse(args[1])));
+Console.WriteLine("Bai 14: " + bai14(int.Parse(args[0]), int.Parse(args[1])));
