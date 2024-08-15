@@ -2,7 +2,7 @@ using system;
 
 namespace day_1
 {
-	public class main
+	public class Main
 	{
 		static void Main(string[] args)
 		{
