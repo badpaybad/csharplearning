@@ -167,6 +167,79 @@ double bai14(int x, int n)
 }
 
 
+double bai15(int n)
+{
+    double r = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        int sum = 0;
+        for (int j = 0; j <= i; j++)
+        {
+            sum += j;
+        }
+        r += (double)1 / sum;
+    }
+
+    return r;
+}
+
+double bai16(int x, int n)
+{
+    double r = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        int sum = 0;
+        for (int j = 0; j <= i; j++)
+        {
+            sum += j;
+        }
+        r += (double)Math.Pow(x, i) / sum;
+    }
+
+    return r;
+}
+
+double bai17(int x, int n)
+{
+    double r = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        r += (double)Math.Pow(x, i) / FactorialRecursive(i);
+    }
+
+    return r;
+}
+
+double bai18(int x, int n)
+{
+    double r = 0;
+    for (int i = 0; i < n; i++)
+    {
+        r += (double)Math.Pow(x, (2 * i)) / FactorialRecursive(2 * i);
+    }
+
+    return r;
+}
+
+double bai19(int x, int n)
+{
+    double r = 0;
+    for (int i = 0; i < n; i++)
+    {
+        r += (double)Math.Pow(x, (2 * i + 1)) / FactorialRecursive(2 * i + 1);
+    }
+
+    return r + 1;
+}
+
+static int FactorialRecursive(int n)
+{
+    if (n == 0)
+        return 1;
+    else
+        return n * FactorialRecursive(n - 1);
+}
+
 Console.WriteLine("Bai 1: " + bai1(int.Parse(args[0])));
 Console.WriteLine("Bai 2: " + bai2(int.Parse(args[0])));
 Console.WriteLine("Bai 3: " + bai3(int.Parse(args[0])));
@@ -181,3 +254,8 @@ Console.WriteLine("Bai 11: " + bai11(int.Parse(args[0])));
 Console.WriteLine("Bai 12: " + bai12(int.Parse(args[0]), int.Parse(args[1])));
 Console.WriteLine("Bai 13: " + bai13(int.Parse(args[0]), int.Parse(args[1])));
 Console.WriteLine("Bai 14: " + bai14(int.Parse(args[0]), int.Parse(args[1])));
+Console.WriteLine("Bai 15: " + bai15(int.Parse(args[0])));
+Console.WriteLine("Bai 16: " + bai16(int.Parse(args[0]), int.Parse(args[1])));
+Console.WriteLine("Bai 17: " + bai17(int.Parse(args[0]), int.Parse(args[1])));
+Console.WriteLine("Bai 18: " + bai18(int.Parse(args[0]), int.Parse(args[1])));
+Console.WriteLine("Bai 19: " + bai19(int.Parse(args[0]), int.Parse(args[1])));
