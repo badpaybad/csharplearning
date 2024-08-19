@@ -163,6 +163,55 @@ int exercise58(int n)
     return flag;
 }
 
+//bool exericse59(int n)
+//{
+//    bool flag = true;
+//    if(n > 0)
+//    {
+//        //11 121 
+//        for (int i = 0; i <= n; i++) { 
+            
+//        }
+//    }
+
+//    return flag;
+//}
+
+bool exercise60(int n)
+{
+    bool flag = true;
+    int numberBefore = 9;
+    for (int i = 0; i <= n; i++) {
+        int numberAfter = n % 10;
+        if(numberAfter > numberBefore)
+        {
+            flag = false; break;
+        }
+        numberBefore = numberAfter;
+        n = n / 10;
+    }
+
+    return flag;
+}
+
+bool exercise61(int n)
+{
+    bool flag = true;
+    int numberBefore = 0;
+    for (int i = 0; i <= n; i++)
+    { 
+        int numberAfter = n % 10;
+        if (numberAfter < numberBefore)
+        {
+            flag = false; break;
+        }
+        numberBefore = numberAfter;
+        n = n / 10;
+    }
+
+    return flag;
+}
+
 Console.WriteLine(exercise51(4582));
 Console.WriteLine(exercise52(4582));
 Console.WriteLine(exercise53(458282));
@@ -171,4 +220,6 @@ Console.WriteLine(exercise55(15345));
 Console.WriteLine(exercise56(24526));
 Console.WriteLine(exercise57(24526));
 Console.WriteLine(exercise58(24526));
+Console.WriteLine(exercise60(15689));
+Console.WriteLine(exercise61(98752));
 Console.ReadLine();
