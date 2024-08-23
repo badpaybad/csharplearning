@@ -412,6 +412,222 @@ namespace Exercise
             }
         }
 
+
+        static int Bai43(int n)
+        {
+            return n.ToString().Length;
+        }
+
+        static int Bai44(int n)
+        {
+            int sum = 0;
+            // int sum = SumOfDigits(n);
+
+            while (n != 0)
+            {
+                sum += n % 10;  // Lấy chữ số cuối cùng
+                n /= 10;        // Loại bỏ chữ số cuối cùng
+            }
+
+            return sum;
+        }
+
+        static int Bai45(int n)
+        {
+            int product = 1;
+
+            while (n != 0)
+            {
+                product *= n % 10;  // Lấy chữ số cuối cùng và nhân vào tích
+                n /= 10;            // Loại bỏ chữ số cuối cùng
+            }
+
+            return product;
+        }
+
+        static int Bai46(int n)
+        {
+            int oddCount = 0;
+
+            while (n != 0)
+            {
+                int digit = n % 10;  // Lấy chữ số cuối cùng
+
+                if (digit % 2 != 0)  // Kiểm tra nếu chữ số là lẻ
+                {
+                    oddCount++;
+                }
+
+                n /= 10;  // Loại bỏ chữ số cuối cùng
+            }
+
+            return oddCount;
+        }
+
+        static int Bai47(int n)
+        {
+            int sum = 0;
+
+            while (n != 0)
+            {
+                int digit = n % 10;  // Lấy chữ số cuối cùng
+
+                if (digit % 2 == 0)  // Kiểm tra nếu chữ số là chẵn
+                {
+                    sum += digit;    // Cộng chữ số chẵn vào tổng
+                }
+
+                n /= 10;  // Loại bỏ chữ số cuối cùng
+            }
+
+            return sum;
+        }
+
+        static int Bai48(int n)
+        {
+            int product = 1;
+            bool hasOddDigits = false;
+
+            while (n != 0)
+            {
+                int digit = n % 10;  // Lấy chữ số cuối cùng
+
+                if (digit % 2 != 0)  // Kiểm tra nếu chữ số là lẻ
+                {
+                    product *= digit;  // Nhân chữ số lẻ vào tích
+                    hasOddDigits = true;
+                }
+
+                n /= 10;  // Loại bỏ chữ số cuối cùng
+            }
+
+            return hasOddDigits ? product : 0;
+        }
+
+        static int Bai49(int n)
+        {
+            while (n >= 10)
+            {
+                n /= 10;
+            }
+            return n;
+        }
+
+        static int Bai50(int n)
+        {
+            int reversed = 0;
+
+            while (n != 0)
+            {
+                int digit = n % 10;  // Lấy chữ số cuối cùng của n
+                reversed = reversed * 10 + digit;  // Thêm chữ số vào số đảo ngược
+                n /= 10;  // Loại bỏ chữ số cuối cùng của n
+            }
+
+            return reversed;
+        }
+
+        static int Bai51(int n)
+        {
+            int maxDigit = 0;
+
+            while (n != 0)
+            {
+                int digit = n % 10;  // Lấy chữ số cuối cùng của n
+                if (digit > maxDigit)
+                {
+                    maxDigit = digit;  // Cập nhật chữ số lớn nhất nếu cần
+                }
+                n /= 10;  // Loại bỏ chữ số cuối cùng của n
+            }
+
+            return maxDigit;
+        }
+
+        static int Bai52(int n)
+        {
+            // Khởi tạo maxDigit với giá trị lớn nhất có thể (9)
+            int minDigit = 9;
+
+            while (n != 0)
+            {
+                int digit = n % 10;  // Lấy chữ số cuối cùng của n
+                if (digit < minDigit)
+                {
+                    minDigit = digit;  // Cập nhật chữ số nhỏ nhất nếu cần
+                }
+                n /= 10;  // Loại bỏ chữ số cuối cùng của n
+            }
+
+            return minDigit;
+        }
+
+
+        static int Bai53(int n)
+        {
+            int maxDigit = 0;
+            int maxDigitCount = 0;
+
+            // Tìm chữ số lớn nhất
+            int temp = n;
+            while (temp != 0)
+            {
+                int digit = temp % 10;  // Lấy chữ số cuối cùng
+                if (digit > maxDigit)
+                {
+                    maxDigit = digit;  // Cập nhật chữ số lớn nhất
+                }
+                temp /= 10;  // Loại bỏ chữ số cuối cùng
+            }
+
+            // Đếm số lần xuất hiện của chữ số lớn nhất
+            temp = n;
+            while (temp != 0)
+            {
+                int digit = temp % 10;  // Lấy chữ số cuối cùng
+                if (digit == maxDigit)
+                {
+                    maxDigitCount++;  // Tăng số lần xuất hiện
+                }
+                temp /= 10;  // Loại bỏ chữ số cuối cùng
+            }
+
+            return maxDigitCount;
+        }
+
+        static int Bai54(int n)
+        {
+            int minDigit = 9;
+            int minDigitCount = 0;
+
+            // Tìm chữ số nhỏ nhất
+            int temp = n;
+            while (temp != 0)
+            {
+                int digit = temp % 10;  // Lấy chữ số cuối cùng
+                if (digit < minDigit)
+                {
+                    minDigit = digit;  // Cập nhật chữ số nhỏ nhất
+                }
+                temp /= 10;  // Loại bỏ chữ số cuối cùng
+            }
+
+            // Đếm số lần xuất hiện của chữ số nhỏ nhất
+            temp = n;
+            while (temp != 0)
+            {
+                int digit = temp % 10;  // Lấy chữ số cuối cùng
+                if (digit == minDigit)
+                {
+                    minDigitCount++;  // Tăng số lần xuất hiện
+                }
+                temp /= 10;  // Loại bỏ chữ số cuối cùng
+            }
+
+            return minDigitCount;
+        }
+
+
     }
 }
 
