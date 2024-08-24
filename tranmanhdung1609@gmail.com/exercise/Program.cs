@@ -10,7 +10,7 @@ namespace Exercise
             Console.WriteLine(result);
         }
 
-        int Bai1(int n)
+        static int Bai1(int n)
         {
             int sum = 0;
             for (int i = 1; i <= n; i++)
@@ -20,7 +20,7 @@ namespace Exercise
             return sum;
         }
 
-        double Bai2(int n)
+        static int Bai2(int n)
         {
             int sum = 0;
             for (int i = 1; i <= n; i++)
@@ -30,7 +30,7 @@ namespace Exercise
             return sum;
         }
 
-        double Bai3(int n)
+        static double Bai3(int n)
         {
             double sum = 0;
             for (int i = 1; i <= n; i++)
@@ -38,9 +38,10 @@ namespace Exercise
                 sum += 1 / i;
 
             }
+            return sum;
         }
 
-        double Bai4(int n)
+        static double Bai4(int n)
         {
             double S = 0;
 
@@ -51,7 +52,7 @@ namespace Exercise
             return S;
         }
 
-        double Bai5(int n)
+        static double Bai5(int n)
         {
             double sum = 0;
             for (int i = 0; i <= n; i++)
@@ -101,7 +102,7 @@ namespace Exercise
             return result;
         }
 
-        static long Bai10(int x, int n)
+        static double Bai10(int x, int n)
         {
             double result = Math.Pow(x, n);
 
@@ -122,9 +123,9 @@ namespace Exercise
             return sum;
         }
 
-        static long Bai12(int n, int x)
+        static double Bai12(int n, int x)
         {
-            long sum = 0;
+            double sum = 0;
 
             for (int i = 1; i <= n; i++)
             {
@@ -137,26 +138,29 @@ namespace Exercise
         static double Bai13(int n)
         {
             double sum = 0;
-            for(in  i = 1; int <= n; i++)
+            for(int  i = 1; i <= n; i++)
             {
                 sum += Math.Pow(2, 2 * i);
             }
+            return sum;
         }
 
 
         static double Bai14(int n)
         {
             double sum = 0;
-            for (in  i = 0; int <= n; i++)
+            for (int  i = 0; i <= n; i++)
             {
                 sum += Math.Pow(2, ((2 * i) + 1));
             }
+
+            return sum;
         }
 
 
         static double Bai15(int n)
         {
-            double sum = 0
+            double sum = 0;
             for (int i = 1; i <= n; i++)
             {
                 double innerSum = 0;
@@ -171,7 +175,7 @@ namespace Exercise
             return sum;
         }
         
-        static long Bai16(int n,int x)
+        static double Bai16(int n,int x)
         {
             double sum = x; // Khởi tạo sum với giá trị x (số hạng đầu tiên)
 
@@ -184,6 +188,7 @@ namespace Exercise
                 }
                 sum += Math.Pow(x, i) / innerSum;
             }
+
             return sum;
         }
 
@@ -309,7 +314,7 @@ namespace Exercise
                 }
             }
 
-            return array;
+            return array.ToArray();
         }
 
         static double bai25(int n)
@@ -349,7 +354,7 @@ namespace Exercise
             {
                 if (n % i == 0 && i % 2 == 0)
                 {
-                    soluong++
+                    soluong++;
                 }
             }
 
