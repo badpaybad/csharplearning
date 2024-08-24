@@ -2,8 +2,9 @@
 
 public class Class1
 {
-	public Class1()
-	{
+    public Class1()
+    {
+        //bai39
         public static float bai39(int n)
         {
             if (n == 1) return (float)Math.Sqrt(1);
@@ -87,5 +88,7 @@ public class Class1
         {
             return (a * b) / bai63(a, b);
         }
+
+       
     }
 }
