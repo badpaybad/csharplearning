@@ -22,3 +22,18 @@ Results:
 
                 Link bài tập để thực hành ngôn ngữ : https://kidsonlineeduvn-my.sharepoint.com/:b:/g/personal/dunp_omt_vn/Ec8dPSurADxNjNatQW0HnhQBnJXCkJ3FHvH_I2gXb5L4ig?e=LTv6t3  
 
+# session 2
+
+Objectives: 
+
+                Setup debug vscode, visual studio 2022
+
+                Basic keyword, synctax 
+
+                Function and mindset
+
+Result:
+
+                Understand c# 
+
+                
