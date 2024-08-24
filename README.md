@@ -33,6 +33,7 @@ Objectives:
                 https://www.w3schools.com/cs/index.php
 
                 Function and mindset, OOP in c# 
+                https://www.w3schools.com/cs/cs_oop.php
 
 Result:
 
