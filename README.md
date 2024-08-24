@@ -28,12 +28,16 @@ Objectives:
 
                 Setup debug vscode, visual studio 2022
 
-                Basic keyword, synctax 
+                Basic keyword, syntax 
 
-                Function and mindset
+                https://www.w3schools.com/cs/index.php
+
+                Function and mindset, OOP in c# 
 
 Result:
 
                 Understand c# 
+
+                OOP with c# implement 
 
                 
