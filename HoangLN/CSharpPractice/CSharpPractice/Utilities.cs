@@ -213,4 +213,88 @@ public static class Utilities
         }
         return sum;
     }
+    
+    //method List all the “divisors” of the positive integer n
+    public static List<int> ListDivisors(int n)
+    {
+        List<int> divisors = new();
+        for (int i = 1; i <= n; i++)
+        {
+            if (n % i == 0)
+            {
+                divisors.Add(i);
+            }
+        }
+        return divisors;
+    }
+    
+    //method calculate sum of divisors of n
+    public static int CalculateSumDivisors(int n)
+    {
+        return ListDivisors(n).Sum();
+    }
+    
+    //method calculate product of divisors of n
+    public static int CalculateProductDivisors(int n)
+    {
+        return ListDivisors(n).Aggregate((a, b) => a * b);
+    }
+    
+    //method count number of divisors of n
+    public static int CountDivisors(int n)
+    {
+        return ListDivisors(n).Count;
+    }
+    
+    //method List all the “odd divisors” of the positive integer n
+    public static List<int> ListOddDivisors(int n)
+    {
+        List<int> divisors = new();
+        for (int i = 1; i <= n; i++)
+        {
+            if (n % i == 0 && i % 2 != 0)
+            {
+                divisors.Add(i);
+            }
+        }
+        return divisors;
+    }
+    
+    //method List all the “even divisors” of the positive integer n
+    public static List<int> ListEvenDivisors(int n)
+    {
+        List<int> divisors = new();
+        for (int i = 1; i <= n; i++)
+        {
+            if (n % i == 0 && i % 2 == 0)
+            {
+                divisors.Add(i);
+            }
+        }
+        return divisors;
+    }
+    
+    //method calculate sum of odd divisors of n
+    public static int CalculateSumOddDivisors(int n)
+    {
+        return ListOddDivisors(n).Sum();
+    }
+    
+    //method calculate sum of even divisors of n
+    public static int CalculateSumEvenDivisors(int n)
+    {
+        return ListEvenDivisors(n).Sum();
+    }
+    
+    //method calculate product of odd divisors of n
+    public static int CalculateProductOddDivisors(int n)
+    {
+        return ListOddDivisors(n).Aggregate((a, b) => a * b);
+    }
+    
+    //method count number of odd divisors of n
+    public static int CountOddDivisors(int n)
+    {
+        return ListOddDivisors(n).Count;
+    }
 }
