@@ -138,7 +138,7 @@ namespace Exercise
         static double Bai13(int n)
         {
             double sum = 0;
-            for(int  i = 1; i <= n; i++)
+            for (int i = 1; i <= n; i++)
             {
                 sum += Math.Pow(2, 2 * i);
             }
@@ -149,7 +149,7 @@ namespace Exercise
         static double Bai14(int n)
         {
             double sum = 0;
-            for (int  i = 0; i <= n; i++)
+            for (int i = 0; i <= n; i++)
             {
                 sum += Math.Pow(2, ((2 * i) + 1));
             }
@@ -174,8 +174,8 @@ namespace Exercise
             sum += 1;
             return sum;
         }
-        
-        static double Bai16(int n,int x)
+
+        static double Bai16(int n, int x)
         {
             double sum = x; // Khởi tạo sum với giá trị x (số hạng đầu tiên)
 
@@ -223,7 +223,7 @@ namespace Exercise
 
             for (int i = 0; i <= n; i++)
             {
-                sum += Math.Pow(x, (2* i)+1) / GiaiThua((2 * i) + 1);
+                sum += Math.Pow(x, (2 * i) + 1) / GiaiThua((2 * i) + 1);
             }
 
             return sum;
@@ -396,7 +396,7 @@ namespace Exercise
 
         static string Bai30(int n)
         {
-    
+
             int sum = 0;
 
             for (int i = 1; i <= n / 2; i++)
@@ -443,8 +443,8 @@ namespace Exercise
 
             while (n != 0)
             {
-                product *= n % 10;  // Lấy chữ số cuối cùng và nhân vào tích
-                n /= 10;            // Loại bỏ chữ số cuối cùng
+                product *= n % 10;
+                n /= 10;
             }
 
             return product;
@@ -456,14 +456,14 @@ namespace Exercise
 
             while (n != 0)
             {
-                int digit = n % 10;  // Lấy chữ số cuối cùng
+                int digit = n % 10;
 
-                if (digit % 2 != 0)  // Kiểm tra nếu chữ số là lẻ
+                if (digit % 2 != 0)
                 {
                     oddCount++;
                 }
 
-                n /= 10;  // Loại bỏ chữ số cuối cùng
+                n /= 10;
             }
 
             return oddCount;
@@ -475,14 +475,14 @@ namespace Exercise
 
             while (n != 0)
             {
-                int digit = n % 10;  // Lấy chữ số cuối cùng
+                int digit = n % 10;
 
-                if (digit % 2 == 0)  // Kiểm tra nếu chữ số là chẵn
+                if (digit % 2 == 0)
                 {
-                    sum += digit;    // Cộng chữ số chẵn vào tổng
+                    sum += digit;
                 }
 
-                n /= 10;  // Loại bỏ chữ số cuối cùng
+                n /= 10;
             }
 
             return sum;
@@ -495,15 +495,15 @@ namespace Exercise
 
             while (n != 0)
             {
-                int digit = n % 10;  // Lấy chữ số cuối cùng
+                int digit = n % 10;
 
-                if (digit % 2 != 0)  // Kiểm tra nếu chữ số là lẻ
+                if (digit % 2 != 0)
                 {
-                    product *= digit;  // Nhân chữ số lẻ vào tích
+                    product *= digit;
                     hasOddDigits = true;
                 }
 
-                n /= 10;  // Loại bỏ chữ số cuối cùng
+                n /= 10;
             }
 
             return hasOddDigits ? product : 0;
@@ -524,9 +524,9 @@ namespace Exercise
 
             while (n != 0)
             {
-                int digit = n % 10;  // Lấy chữ số cuối cùng của n
-                reversed = reversed * 10 + digit;  // Thêm chữ số vào số đảo ngược
-                n /= 10;  // Loại bỏ chữ số cuối cùng của n
+                int digit = n % 10;
+                reversed = reversed * 10 + digit;
+                n /= 10;
             }
 
             return reversed;
@@ -538,12 +538,12 @@ namespace Exercise
 
             while (n != 0)
             {
-                int digit = n % 10;  // Lấy chữ số cuối cùng của n
+                int digit = n % 10;
                 if (digit > maxDigit)
                 {
-                    maxDigit = digit;  // Cập nhật chữ số lớn nhất nếu cần
+                    maxDigit = digit;
                 }
-                n /= 10;  // Loại bỏ chữ số cuối cùng của n
+                n /= 10;
             }
 
             return maxDigit;
@@ -551,17 +551,16 @@ namespace Exercise
 
         static int Bai52(int n)
         {
-            // Khởi tạo maxDigit với giá trị lớn nhất có thể (9)
             int minDigit = 9;
 
             while (n != 0)
             {
-                int digit = n % 10;  // Lấy chữ số cuối cùng của n
+                int digit = n % 10;
                 if (digit < minDigit)
                 {
-                    minDigit = digit;  // Cập nhật chữ số nhỏ nhất nếu cần
+                    minDigit = digit;
                 }
-                n /= 10;  // Loại bỏ chữ số cuối cùng của n
+                n /= 10;
             }
 
             return minDigit;
@@ -573,28 +572,26 @@ namespace Exercise
             int maxDigit = 0;
             int maxDigitCount = 0;
 
-            // Tìm chữ số lớn nhất
             int temp = n;
             while (temp != 0)
             {
-                int digit = temp % 10;  // Lấy chữ số cuối cùng
+                int digit = temp % 10;
                 if (digit > maxDigit)
                 {
-                    maxDigit = digit;  // Cập nhật chữ số lớn nhất
+                    maxDigit = digit;
                 }
-                temp /= 10;  // Loại bỏ chữ số cuối cùng
+                temp /= 10;
             }
 
-            // Đếm số lần xuất hiện của chữ số lớn nhất
             temp = n;
             while (temp != 0)
             {
-                int digit = temp % 10;  // Lấy chữ số cuối cùng
+                int digit = temp % 10;
                 if (digit == maxDigit)
                 {
-                    maxDigitCount++;  // Tăng số lần xuất hiện
+                    maxDigitCount++;
                 }
-                temp /= 10;  // Loại bỏ chữ số cuối cùng
+                temp /= 10;
             }
 
             return maxDigitCount;
@@ -605,31 +602,226 @@ namespace Exercise
             int minDigit = 9;
             int minDigitCount = 0;
 
-            // Tìm chữ số nhỏ nhất
             int temp = n;
             while (temp != 0)
             {
-                int digit = temp % 10;  // Lấy chữ số cuối cùng
+                int digit = temp % 10;
                 if (digit < minDigit)
                 {
-                    minDigit = digit;  // Cập nhật chữ số nhỏ nhất
+                    minDigit = digit;
                 }
-                temp /= 10;  // Loại bỏ chữ số cuối cùng
+                temp /= 10;
             }
 
-            // Đếm số lần xuất hiện của chữ số nhỏ nhất
             temp = n;
             while (temp != 0)
             {
-                int digit = temp % 10;  // Lấy chữ số cuối cùng
+                int digit = temp % 10;
                 if (digit == minDigit)
                 {
-                    minDigitCount++;  // Tăng số lần xuất hiện
+                    minDigitCount++;
                 }
-                temp /= 10;  // Loại bỏ chữ số cuối cùng
+                temp /= 10;
             }
 
             return minDigitCount;
+        }
+
+        static int Bai55(int n)
+        {
+            // Lấy chữ số đầu tiên
+            int firstDigit = n;
+            while (firstDigit >= 10)
+            {
+                firstDigit /= 10;
+            }
+
+            int count = 0;
+            int length = n.ToString().Length;
+
+            for (int i = 0; i < length; i++)
+            {
+                int digit = n % 10;
+                n /= 10;
+
+                if (digit == firstDigit)
+                {
+                    count++;
+                }
+            }
+            return count;
+
+        }
+
+        static bool Bai56(int n)
+        {
+            while (n > 0)
+            {
+                int digit = n % 10;
+                if (digit % 2 == 0)
+                {
+                    return false;
+                }
+                n /= 10;
+            }
+            return true;
+        }
+
+        static bool Bai57(int n)
+        {
+            while (n > 0)
+            {
+                int digit = n % 10;
+                if (digit % 2 != 0)
+                {
+                    return false;
+                }
+                n /= 10;
+            }
+            return true;
+        }
+
+        static string Bai59(int n)
+        {
+            int originalNumber = n;
+            int reversedNumber = 0;
+
+            // Đảo ngược các chữ số của n
+            while (n > 0)
+            {
+                int digit = n % 10; // Lấy chữ số cuối cùng
+                reversedNumber = reversedNumber * 10 + digit; // Thêm chữ số vào số đảo ngược
+                n /= 10; // Loại bỏ chữ số cuối cùng của n
+            }
+
+            if (originalNumber == reversedNumber)
+            {
+                return $"{originalNumber} là số đối xứng";
+            }
+            else
+            {
+                return $"{originalNumber} không phải là số đối xứng";
+            }
+        }
+
+        static string Bai60(int n)
+        {
+            int previousDigit = 10; // Khởi tạo giá trị lớn hơn mọi chữ số của n
+
+            while (n > 0)
+            {
+                int currentDigit = n % 10; // Lấy chữ số cuối cùng
+                if (currentDigit >= previousDigit) // Kiểm tra nếu chữ số hiện tại không nhỏ hơn chữ số trước đó
+                {
+                    return $"{n} không có chữ số tăng dần từ trái sang phải";
+                }
+                previousDigit = currentDigit; // Cập nhật chữ số trước đó
+                n /= 10; // Loại bỏ chữ số cuối cùng của n
+            }
+
+            return $"{n} có các chữ số tăng dần từ trái sang phải";
+        }
+
+        static string Bai61(int n)
+        {
+            // Lưu trữ chữ số cuối cùng để so sánh
+            int previousDigit = -1; // Khởi tạo giá trị nhỏ hơn mọi chữ số của n
+
+            int originalNumber = n; // Lưu lại giá trị gốc của n để trả về kết quả
+
+            while (n > 0)
+            {
+                int currentDigit = n % 10; // Lấy chữ số cuối cùng
+                if (previousDigit != -1 && currentDigit >= previousDigit) // Kiểm tra nếu chữ số hiện tại không nhỏ hơn chữ số trước đó
+                {
+                    return $"{originalNumber} không có chữ số giảm dần từ trái sang phải";
+                }
+                previousDigit = currentDigit; // Cập nhật chữ số trước đó
+                n /= 10; // Loại bỏ chữ số cuối cùng của n
+            }
+
+            return $"{originalNumber} có các chữ số giảm dần từ trái sang phải";
+        }
+
+        static string Bai64(int a, int b)
+        {
+            if (a == 0)
+            {
+                if (b == 0)
+                {
+                    return "phuong trinh vo so nghiem";
+                }
+                else
+                {
+                    return "Phuong trinh vo nghiem";
+                }
+            } else
+            {
+               double x = -b / a;
+                return $"Phuong trinh co nghiem la {x}";
+            }
+        }
+
+
+        static string Bai65(int a, int b, int c)
+        {
+            double delta = b * b - 4 * a * c;
+
+            if (a == 0)
+            {
+                if (b == 0)
+                {
+                    return c == 0 ? "Phương trình có vô số nghiệm." : "Phương trình vô nghiệm.";
+                }
+                else
+                {
+                    double y = -c / (double)b;
+                    if (y >= 0)
+                    {
+                        double x1 = Math.Sqrt(y);
+                        double x2 = -Math.Sqrt(y);
+                        return $"Nghiệm của phương trình là: x = ±{x1}";
+                    }
+                    else
+                    {
+                        return "Phương trình không có nghiệm thực.";
+                    }
+                }
+            }
+            else
+            {
+                if (delta > 0)
+                {
+                    double sqrtDelta = Math.Sqrt(delta);
+                    double y1 = (-b + sqrtDelta) / (2 * a);
+                    double y2 = (-b - sqrtDelta) / (2 * a);
+
+                    return $"{PrintSolutions(y1)}\n{PrintSolutions(y2)}";
+                }
+                else if (delta == 0)
+                {
+                    double y = -b / (2 * a);
+                    return PrintSolutions(y);
+                }
+                else
+                {
+                    return "Phương trình không có nghiệm thực.";
+                }
+            }
+        }
+
+        static string PrintSolutions(double y)
+        {
+            if (y >= 0)
+            {
+                double x1 = Math.Sqrt(y);
+                double x2 = -Math.Sqrt(y);
+                return $"Nghiệm của phương trình là: x = ±{x1}";
+            }
+            else
+            {
+                return "Phương trình không có nghiệm thực.";
+            }
         }
 
 
