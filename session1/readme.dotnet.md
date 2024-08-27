@@ -16,7 +16,7 @@ https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet
 
                 dotnet new list
 
-                dotnet new console
+                dotnet new console test1
 
                 dotnet add package
 

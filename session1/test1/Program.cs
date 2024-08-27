@@ -1,14 +1,17 @@
-﻿
+﻿using System;
+
 int Sum(int n)
 {
-    int r = 0;
-    int R=1;
-    Int32 rr=0;
-    for (var i = 0; i <= n; i++)
-    {
-        r = r+i;
-    }
-    return r;
+    
+    throw new NotImplementedException("todo toi muon lam j do");
+    // int r = 0;    
+    // int R=1;
+    // Int32 rr=0;
+    // for (var i = 0; i <= n; i++)
+    // {
+    //     r = r+i;
+    // }
+    // return r;
 }
 
 Console.WriteLine(Sum(int.Parse( args[0]) ));
