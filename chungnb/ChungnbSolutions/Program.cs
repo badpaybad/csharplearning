@@ -7,6 +7,7 @@ using DayFiveNamespace;
 using DaySixNamespace;
 using DaySevenNamespace;
 using DayEightNamespace;
+using DayNineSolutions;
 
 namespace ChungnbSolutions
 {
@@ -15,11 +16,12 @@ namespace ChungnbSolutions
         static void Main(string[] args)
         {
             // DayOne.Solutions();
-            // DayTwo.Solutions();0
+            // DayTwo.Solutions();
             // DaySix.Solutions();
             // DaySeven.Solutions();
             // DayEight.Solutions();
-
+            // DayEight.Solutions();
+            DayNine.Solutions();
         }
 
     }
