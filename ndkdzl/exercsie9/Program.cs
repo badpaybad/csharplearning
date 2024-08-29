@@ -145,6 +145,51 @@ int exercise125(int[] array)
     return count;
 }
 
+double exercise126(double[] array)
+{
+    double total = 0;
+
+    for(int i = 0; i < array.Length; i++)
+    {
+        if (array[i] < 0)
+        {
+            total += array[i];
+        }
+    }
+
+    return total;
+}
+
+double[] exercise127(double[] array)
+{
+    Array.Sort(array);
+
+    return array;
+}
+
+double[] exercise128()
+{
+    int n = 0;
+    //Console.WriteLine("Nhap so luong phan tu cua mang: ");
+    if(int.TryParse(Console.ReadLine(), out n) && n > 0)
+    {
+        double[] arrayResult = new double[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine("Nhap phan tu thu " + (i + 1) + " cua mang: ");
+            arrayResult[i] = double.Parse(Console.ReadLine());
+        }
+        return arrayResult;
+
+    }
+    else
+    {
+        Console.WriteLine("Nhập sai r nhak , phai nhap vao so nguyen");
+    }
+    return [];
+}
+
 Console.WriteLine(exercise82(2250,22220,2223));
 Console.WriteLine(exercise83(2250,-22220));
 Console.WriteLine(exericse84(0 ,0));
@@ -155,4 +200,14 @@ Console.WriteLine(exericse122([1.6, 5, -3.2, 2.5, 6]));
 Console.WriteLine(exericse123([1,-2,5,2,0]));
 Console.WriteLine(exericse124([1,-2,5,2,0]));
 Console.WriteLine(exercise125([3,4,5,6,11, 20]));
+Console.WriteLine(exercise126([-3,4,-5,6,-11, 20]));
+//Console.WriteLine(exercise127([-3,4,-5,6,-11, 20]));
+double[] arrayResult127 = exercise127([-3, 4, -5, 6, -11, 20]);
+Console.WriteLine("Result exercise 127: ");
+foreach (int element in arrayResult127)
+{
+    Console.WriteLine(element);
+}
+Console.WriteLine("Resutl exercise 128: ");
+Console.WriteLine(exercise128());
 Console.ReadLine();
