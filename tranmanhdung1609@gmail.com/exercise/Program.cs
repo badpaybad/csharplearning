@@ -6,7 +6,7 @@ namespace Exercise
         static void Main(string[] args)
         {
             int n = 10;
-            double result = Bai1(n);
+            string result = Bai128();
             Console.WriteLine(result);
         }
 
@@ -825,6 +825,150 @@ namespace Exercise
         }
 
 
+        static double Bai122(double[] array)
+        {
+            double max = array[0];
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] > max)
+                {
+                    max = array[i];
+                }
+            }
+
+            return max;
+        }
+
+        static int Bai123(int[] array)
+        {
+            int minIndex = 0;
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] < array[minIndex])
+                {
+                    minIndex = i;
+                }
+            }
+
+            return minIndex;
+        }
+
+        static bool Bai124(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] % 2 == 0 && array[i] < 2004)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        static bool Bai125(int number)
+        {
+            if (number < 2)
+            {
+                return false;
+            }
+
+            for (int i = 2; i <= Math.Sqrt(number); i++)
+            {
+                if (number % i == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        static double Bai126(double[] array)
+        {
+            double sum = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] < 0)
+                {
+                    sum += array[i];
+                }
+            }
+
+            return sum;
+        }
+
+        static string Bai127(double[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                for (int j = 0; j < array.Length - 1 - i; j++)
+                {
+                    if (array[j] > array[j + 1])
+                    {
+                        double temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
+            }
+
+            return string.Join(", ", array);
+        }
+
+
+        static string Bai128()
+        {
+            Console.Write("Nhap so luong phan tu cua mang: ");
+            int size = int.Parse(Console.ReadLine());
+
+            double[] array = new double[size];
+
+            for (int i = 0; i < size; i++)
+            {
+                Console.Write($"Nhap phan tu thu {i + 1}: ");
+                array[i] = double.Parse(Console.ReadLine());
+            }
+
+
+            return string.Join(", ", array);
+        }
+
+
+        static string Bai129()
+        {
+            Console.Write("Nhap so luong phan tu cua mang: ");
+            int size = int.Parse(Console.ReadLine());
+
+            int[] array = new int[size];
+
+            for (int i = 0; i < size; i++)
+            {
+                Console.Write($"Nhap phan tu thu {i + 1}: ");
+                array[i] = int.Parse(Console.ReadLine());
+            }
+
+            return string.Join(", ", array);
+        }
+
+
+        static int[] Bai132(int[] array)
+        {
+            List<int> valArray = new List<int>();
+
+            foreach (int number in array)
+            {
+                if (number % 2 == 0)
+                {
+                    valArray.Add(number);
+
+                }
+            }
+            return valArray.ToArray();
+        }
     }
 }
 
