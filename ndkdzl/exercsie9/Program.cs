@@ -190,6 +190,29 @@ double[] exercise128()
     return [];
 }
 
+int[] exercise129()
+{
+    int n = 0;
+    //Console.WriteLine("Nhap so luong phan tu cua mang: ");
+    if (int.TryParse(Console.ReadLine(), out n) && n > 0)
+    {
+        int[] arrayResult = new int[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine("Nhap phan tu thu " + (i + 1) + " cua mang: ");
+            arrayResult[i] = int.Parse(Console.ReadLine());
+        }
+        return arrayResult;
+
+    }
+    else
+    {
+        Console.WriteLine("Nhập sai r nhak , phai nhap vao so nguyen");
+    }
+    return [];
+}
+
 Console.WriteLine(exercise82(2250,22220,2223));
 Console.WriteLine(exercise83(2250,-22220));
 Console.WriteLine(exericse84(0 ,0));
@@ -210,4 +233,5 @@ foreach (int element in arrayResult127)
 }
 Console.WriteLine("Resutl exercise 128: ");
 Console.WriteLine(exercise128());
+Console.WriteLine(exercise129());
 Console.ReadLine();
