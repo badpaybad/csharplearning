@@ -15,6 +15,16 @@ public class Class1
         Console.WriteLine("=======================================");
         Console.WriteLine("Exercise 132 result:");
         exercise132();
+        Console.WriteLine("=======================================");
+        Console.WriteLine("Exercise 133 result:");
+        exercise133();
+        Console.WriteLine("=======================================");
+        Console.WriteLine("Exercise 134 result:");
+        double[] arrayExercise134 = { 5, 2, 3, 3.5, 2.1, 9.6, 3.5,10.0,6.5 };
+        Console.WriteLine(exercise134(arrayExercise134));
+        Console.WriteLine("Exercise 135 result:");
+        double[] arrayExercise135 = { -5, 2, 3, 3.5, 2.1, 9.6, 3.5, 10.0, 6.5 };
+        Console.WriteLine(exercise135(arrayExercise135));
 
         Console.ReadLine();
     }
@@ -52,4 +62,53 @@ public class Class1
         }
     }
 
+    static void exercise133()
+    {
+        
+        List<double> myArray = new List<double>([2.52, -3.1, 2.5, -5, 252, 32]);
+        int count = 0;
+        foreach (int item in myArray)
+        {
+            if (item < 0)
+            {
+                Console.WriteLine("Vi tri phan tu co gia tri la so am: " + count);
+            }
+            count++;
+
+        }
+    }
+
+    static double exercise134(double[] array)
+    {
+        if(array.Length < 1)
+        {
+            return 0;
+        }
+
+        double max = array[0];
+
+        for(int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > max)
+            {
+                max = array[i];
+            }
+        }
+
+        return max;
+    }
+
+    static double exercise135(double[] array)
+    {
+        if (array.Length < 1) return -1;
+        if (array[0] < 0) return -1;
+
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > 0) return array[i];
+        }
+
+        return -1;
+    }
 }
