@@ -5,8 +5,8 @@ namespace Exercise
     {
         static void Main(string[] args)
         {
-            int n = 10;
-            string result = Bai128();
+            double[] numbers = { 1.5, -2.3, 0.0, -0.8, -1.0 };
+            int result = Bai154(numbers);
             Console.WriteLine(result);
         }
 
@@ -969,6 +969,415 @@ namespace Exercise
             }
             return valArray.ToArray();
         }
+
+        static List<int> Bai133(double[] array)
+        {
+            List<int> positions = new List<int>();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] < 0)
+                {
+                    positions.Add(i);
+                }
+            }
+
+            return positions;
+        }
+
+        static double Bai134(double[] array)
+        {
+            double max = array[0];
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] > max)
+                {
+                    max = array[i];
+                }
+            }
+
+            return max;
+        }
+
+        static double Bai135(double[] array)
+        {
+            foreach (double number in array)
+            {
+                if (number > 0)
+                {
+                    return number;
+                }
+            }
+
+            return -1;
+        }
+
+        static int Bai136(int[] array)
+        {
+            for (int i = array.Length - 1; i >= 0; i--)
+            {
+                if (array[i] % 2 == 0)
+                {
+                    return array[i];
+                }
+            }
+
+            return -1;
+        }
+
+        static int Bai137(double[] array)
+        {
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Mảng không được rỗng");
+            }
+
+            int minIndex = 0;
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] < array[minIndex])
+                {
+                    minIndex = i;
+                }
+            }
+
+            return minIndex;
+        }
+
+        static int Bai138(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] % 2 == 0)
+                {
+                    return i; 
+                }
+            }
+
+            return -1;
+        }
+
+        static int bai139(int[] arr)
+        {
+            bool IsPerfectNumber(int n)
+            {
+                if (n < 2) return false;
+                int sum = 0;
+                for (int i = 1; i <= n / 2; i++)
+                {
+                    if (n % i == 0) sum += i;
+                }
+                return sum == n;
+            }
+
+            int lastIndex = -1;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (IsPerfectNumber(arr[i]))
+                {
+                    lastIndex = i;
+                }
+            }
+            return lastIndex;
+        }
+
+
+        static double Bai140(double[] arr)
+        {
+            double minPositive = -1;
+
+            foreach (double num in arr)
+            {
+                if (num > 0) 
+                {
+                    if (minPositive == -1 || num < minPositive)
+                    {
+                        minPositive = num;
+                    }
+                }
+            }
+
+            return minPositive;
+        }
+
+        static int Bai141(double[] arr)
+        {
+            int minPositiveIndex = -1;
+            double minPositiveValue = double.MaxValue;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] > 0 && arr[i] < minPositiveValue)
+                {
+                    minPositiveValue = arr[i];
+                    minPositiveIndex = i;
+                }
+            }
+
+            return minPositiveIndex;
+        }
+
+        static double Bai142(double[] arr)
+        {
+            if (arr.Length == 0) return double.NaN; // Kiểm tra mảng rỗng
+
+            double minValue = arr[0];
+
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i] < minValue)
+                {
+                    minValue = arr[i];
+                }
+            }
+
+            return minValue;
+        }
+
+        static int Bai143(int[] arr)
+        {
+            foreach (int num in arr)
+            {
+                if (num % 2 == 0)
+                {
+                    return num;
+                }
+            }
+            return -1;
+        }
+
+        static int Bai144(int[] arr)
+        {
+            bool IsPrime(int n)
+            {
+                if (n < 2) return false;
+                for (int i = 2; i <= Math.Sqrt(n); i++)
+                {
+                    if (n % i == 0) return false;
+                }
+                return true;
+            }
+
+            foreach (int num in arr)
+            {
+                if (IsPrime(num))
+                {
+                    return num;
+                }
+            }
+            return -1;
+        }
+
+        static int Bai145(int[] arr)
+        {
+            bool IsPerfectNumber(int n)
+            {
+                if (n < 2) return false;
+                int sum = 0;
+                for (int i = 1; i <= n / 2; i++)
+                {
+                    if (n % i == 0)
+                    {
+                        sum += i;
+                    }
+                }
+                return sum == n;
+            }
+
+            foreach (int num in arr)
+            {
+                if (IsPerfectNumber(num))
+                {
+                    return num; 
+                }
+            }
+            return -1;
+        }
+
+        static double Bai146(double[] arr)
+        {
+            foreach (double num in arr)
+            {
+                if (num < 0)
+                {
+                    return num;
+                }
+            }
+            return 1;
+        }
+
+        static double Bai147(double[] arr)
+        {
+            for (int i = arr.Length - 1; i >= 0; i--)
+            {
+                if (arr[i] > 0)
+                {
+                    return arr[i];
+                }
+            }
+
+            return -1;
+        }
+
+        static int Bai148(int[] arr)
+        {
+            bool IsPrime(int n)
+            {
+                if (n < 2) return false;
+                for (int i = 2; i <= Math.Sqrt(n); i++)
+                {
+                    if (n % i == 0) return false;
+                }
+                return true;
+            }
+
+
+            for (int i = arr.Length - 1; i >= 0; i--)
+            {
+                if (IsPrime(arr[i]))
+                {
+                    return arr[i];
+                }
+            }
+
+            return -1;
+        }
+
+        static int Bai149(int[] arr)
+        {
+            bool IsPerfectNumber(int n)
+            {
+                if (n < 2) return false;
+                int sum = 0;
+                for (int i = 1; i <= n / 2; i++)
+                {
+                    if (n % i == 0)
+                    {
+                        sum += i;
+                    }
+                }
+                return sum == n;
+            }
+
+
+            for (int i = arr.Length - 1; i >= 0; i--)
+            {
+                if (IsPerfectNumber(arr[i]))
+                {
+                    return arr[1];
+                }
+            }
+
+            return -1;
+        }
+
+        static double Bai150(double[] arr)
+        {
+            double largestNegative = double.NegativeInfinity; // Khởi tạo giá trị là âm vô cực
+
+            foreach (double num in arr)
+            {
+                if (num < 0 && num > largestNegative)
+                {
+                    largestNegative = num;
+                }
+            }
+
+            return largestNegative == double.NegativeInfinity ? 0 : largestNegative;
+        }
+
+        static int Bai151(int[] arr)
+        {
+            bool IsPrime(int n)
+            {
+                if (n < 2) return false;
+                for (int i = 2; i <= Math.Sqrt(n); i++)
+                {
+                    if (n % i == 0) return false;
+                }
+                return true;
+            }
+
+            int largestPrime = 0;
+
+            foreach (int num in arr)
+            {
+                if (IsPrime(num) && num > largestPrime)
+                {
+                    largestPrime = num; 
+                }
+            }
+
+            return largestPrime;
+        }
+
+        static int Bai152(int[] arr)
+        {
+            bool IsPerfectNumber(int n)
+            {
+                if (n < 2) return false;
+                int sum = 0;
+                for (int i = 1; i <= n / 2; i++)
+                {
+                    if (n % i == 0)
+                    {
+                        sum += i;
+                    }
+                }
+                return sum == n;
+            }
+
+            int smallestPerfect = int.MaxValue;
+
+            foreach (int num in arr)
+            {
+                if (IsPerfectNumber(num) && num < smallestPerfect)
+                {
+                    smallestPerfect = num;
+                }
+            }
+
+            return smallestPerfect == int.MaxValue ? 0 : smallestPerfect;
+        }
+
+        static int Bai153(int[] arr)
+        {
+            int smallestEven = int.MaxValue;
+
+            foreach (int num in arr)
+            {
+                if (num % 2 == 0)
+                {
+                    if (num < smallestEven)
+                    {
+                        smallestEven = num;
+                    }
+                }
+            }
+
+            return smallestEven == int.MaxValue ? -1 : smallestEven;
+        }
+
+        static int Bai154(double[] arr)
+        {
+            int position = -1;
+            double largestNegative = double.NegativeInfinity;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] < 0 && arr[i] > largestNegative)
+                {
+                    largestNegative = arr[i];
+                    position = i;
+                }
+            }
+
+            return position;
+        }
+
+
     }
 }
 
