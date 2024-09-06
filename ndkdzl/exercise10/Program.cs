@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Xml.Xsl;
 
 public class Class1
 {
@@ -22,9 +23,22 @@ public class Class1
         Console.WriteLine("Exercise 134 result:");
         double[] arrayExercise134 = { 5, 2, 3, 3.5, 2.1, 9.6, 3.5,10.0,6.5 };
         Console.WriteLine(exercise134(arrayExercise134));
+        Console.WriteLine("=======================================");
         Console.WriteLine("Exercise 135 result:");
         double[] arrayExercise135 = { -5, 2, 3, 3.5, 2.1, 9.6, 3.5, 10.0, 6.5 };
         Console.WriteLine(exercise135(arrayExercise135));
+        Console.WriteLine("=======================================");
+        Console.WriteLine("Exercise 136 result:");
+        int[] arrayExercise136 = { -5, 2, 3, 3, 2,6 };
+        Console.WriteLine(exercise136(arrayExercise136));
+        Console.WriteLine("=======================================");
+        Console.WriteLine("Exercise 137 result:");
+        double[] arrayExercise137 = { -5, 2, 3, 3, 2, 6,-15 };
+        Console.WriteLine(exercise137(arrayExercise137));
+        Console.WriteLine("=======================================");
+        Console.WriteLine("Exercise 138 result:");
+        int[] arrayExercise138 = { -5, 2, 3, 3, 2, 6, -15 };
+        Console.WriteLine(exercise138(arrayExercise138));
 
         Console.ReadLine();
     }
@@ -107,6 +121,59 @@ public class Class1
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] > 0) return array[i];
+        }
+
+        return -1;
+    }
+
+    static int exercise136(int[] array)
+    {
+        if (array.Length < 1) return -1;
+
+        int result = -1;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] % 2 == 0)
+            {
+                result = array[i];
+            }
+        }
+
+        return result;
+    }
+
+    static double exercise137(double[] array)
+    {
+        if (array.Length < 1) return -1;
+
+        double min = array[0];
+        int count = 0;
+        int result = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i]  < min)
+            {
+                min = array[i];
+                result = count;
+            }
+            count++;
+        }
+
+        return result;
+    }
+
+    static int exercise138(int[] array)
+    {
+        if (array.Length < 1) return -1;
+
+        int count = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] % 2 == 0)
+            {
+                return count;
+            }
+            count++;
         }
 
         return -1;
