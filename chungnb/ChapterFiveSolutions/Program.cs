@@ -1,4 +1,6 @@
-﻿using DayTenNamespace;
+﻿using Solutions1Namespace;
+using Solutions2Namespace;
+using Solutions3Namespace;
 
 namespace Program
 {
@@ -6,7 +8,9 @@ namespace Program
     {
         public static void Main(string[] args)
         {
-            DayTen.Solutions();
+            // Solutions1.Solutions();
+            // Solutions2.Solutions();
+            Solutions3.Solutions();
         }
     }
 }
