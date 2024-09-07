@@ -1,10 +1,11 @@
 ﻿using SupportNamespace;
+using ChungnbInterfaces;
 
 namespace Solutions1Namespace
 {
-     class Solutions1
+     class Solutions1: ISolution
     {
-        public static void Solutions()
+        public void Solutions()
         {
             Console.WriteLine($"-- Các bài từ 122 tới 127 --");
 
