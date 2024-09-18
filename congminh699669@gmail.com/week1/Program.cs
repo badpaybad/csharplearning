@@ -249,18 +249,17 @@ List<int> excercise20(int n)
     return result;
 }
 
-int excercise21(int n)
+int excercise21(int n){
+    int sum = 0;
+    for (int i = 1; i <= n; i++)
     {
-        int sum = 0;
-        for (int i = 1; i <= n; i++)
+        if (n % i == 0)
         {
-            if (n % i == 0)
-            {
-                sum += i;
-            }
+            sum += i;
         }
-        return sum;
     }
+    return sum;
+}
 
 Console.WriteLine("Result exercise 1: " + excercise1(1000000));
 Console.WriteLine("Result exercise 2: " + excercise2(3));
