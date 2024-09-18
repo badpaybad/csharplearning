@@ -1,4 +1,4 @@
-﻿namespace Day_1.Day_29_07_09_2024;
+﻿namespace Week3.Day_29_07_09_2024;
 
 public class Bai136 : Homework
 {

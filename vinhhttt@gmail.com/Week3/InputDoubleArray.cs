@@ -1,6 +1,4 @@
-using System;
-
-namespace Day_1
+namespace Week3
 {
     public class InputDoubleArray
     {

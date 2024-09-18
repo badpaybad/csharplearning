@@ -1,4 +1,4 @@
-﻿namespace Day_1;
+﻿namespace Week3;
 
 
 public abstract class Homework
