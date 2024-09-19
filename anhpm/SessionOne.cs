@@ -646,3 +646,286 @@ public class SessionOne
         return index;
     }
 }
+
+public abstract class ArrayOperations
+{
+    public abstract object Execute();
+}
+
+public class Bai155 : ArrayOperations
+{
+    private double[] array;
+    private double x;
+
+    public Bai155(double[] array, double x)
+    {
+        this.array = array;
+        this.x = x;
+    }
+
+    public override object Execute()
+    {
+        double farthestValue = array.OrderBy(v => Math.Abs(v - x)).LastOrDefault();
+        return farthestValue;
+    }
+}
+
+public class Bai156 : ArrayOperations
+{
+    private double[] array;
+    private double x;
+
+    public Bai156(double[] array, double x)
+    {
+        this.array = array;
+        this.x = x;
+    }
+
+    public override object Execute()
+    {
+        int index = array.Select((v, i) => new { Value = v, Index = i })
+                         .OrderBy(x => Math.Abs(x.Value - this.x))
+                         .FirstOrDefault()?.Index ?? -1;
+        return index;
+    }
+}
+
+public class Bai157 : ArrayOperations
+{
+    private double[] array;
+
+    public Bai157(double[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        double minValue = array.Min();
+        double maxValue = array.Max();
+        return new double[] { minValue, maxValue };
+    }
+}
+
+public class Bai158 : ArrayOperations
+{
+    private double[] array;
+
+    public Bai158(double[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        double min = array.Min();
+        double max = array.Max();
+        double x = Math.Max(Math.Abs(min), Math.Abs(max));
+        return x;
+    }
+}
+
+public class Bai159 : ArrayOperations
+{
+    private int[] array;
+
+    public Bai159(int[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        return array.Where(x => x > 2003).DefaultIfEmpty(0).First();
+    }
+}
+
+public class Bai160 : ArrayOperations
+{
+    private int[] array;
+
+    public Bai160(int[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        return array.Where(x => x < -1).DefaultIfEmpty(0).Last();
+    }
+}
+
+public class Bai161 : ArrayOperations
+{
+    private int[] array;
+    private int x;
+    private int y;
+
+    public Bai161(int[] array, int x, int y)
+    {
+        this.array = array;
+        this.x = x;
+        this.y = y;
+    }
+
+    public override object Execute()
+    {
+        int? result = array.FirstOrDefault(value => value > x && value < y);
+        return result ?? x;
+    }
+}
+
+public class Bai162 : ArrayOperations
+{
+    private int[] array;
+
+    public Bai162(int[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        for (int i = 1; i < array.Length - 1; i++)
+        {
+            if (array[i] == array[i - 1] * array[i + 1])
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+public class Bai163 : ArrayOperations
+{
+    private int[] array;
+
+    public Bai163(int[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        return array.FirstOrDefault(x => Math.Sqrt(x) % 1 == 0);
+    }
+}
+
+public class Bai164 : ArrayOperations
+{
+    private int[] array;
+
+    public Bai164(int[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        return array.FirstOrDefault(x => x.ToString() == new string(x.ToString().Reverse().ToArray()));
+    }
+}
+
+public class Bai165 : ArrayOperations
+{
+    private int[] array;
+
+    public Bai165(int[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        return array.FirstOrDefault(x => x.ToString().First() % 2 != 0);
+    }
+}
+
+public class Bai166 : ArrayOperations
+{
+    private int[] array;
+
+    public Bai166(int[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        return array.FirstOrDefault(x => (x & (x - 1)) == 0);
+    }
+}
+
+public class Bai167 : ArrayOperations
+{
+    private int[] array;
+
+    public Bai167(int[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        return array.Where(x => x.ToString().All(c => (c - '0') % 2 != 0)).DefaultIfEmpty(0).Max();
+    }
+}
+
+public class Bai168 : ArrayOperations
+{
+    private int[] array;
+
+    public Bai168(int[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        return array.Where(x => x % 5 == 0).DefaultIfEmpty(0).Max();
+    }
+}
+
+public class Bai169 : ArrayOperations
+{
+    private int[] array;
+
+    public Bai169(int[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        return array.Where(x => x % 2 == 0).OrderByDescending(x => x).FirstOrDefault();
+    }
+}
+
+public class Bai170 : ArrayOperations
+{
+    private int[] array;
+
+    public Bai170(int[] array)
+    {
+        this.array = array;
+    }
+
+    public override object Execute()
+    {
+        int smallestPrime = array.Where(IsPrime).OrderBy(x => x).FirstOrDefault();
+        return smallestPrime == 0 ? 0 : smallestPrime;
+    }
+
+    private bool IsPrime(int number)
+    {
+        if (number <= 1) return false;
+        if (number == 2) return true;
+        if (number % 2 == 0) return false;
+        for (int i = 3; i * i <= number; i += 2)
+        {
+            if (number % i == 0) return false;
+        }
+        return true;
+    }
+}

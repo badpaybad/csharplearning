@@ -297,7 +297,32 @@ int maxNegativeIndex = SessionOne.bai154(arrReal10);
 Console.WriteLine("Bai 154 - Vi tri gia tri am lon nhat trong mang: " + (maxNegativeIndex == -1 ? "Khong co" : maxNegativeIndex.ToString()));
     
 
+ ArrayOperations[] exercises = new ArrayOperations[]
+        {
+            new Bai155(new double[] {24, 45, 23, 13, 43, -12}, 15),
+            new Bai156(new double[] {24, 45, 23, 13, 43, -12}, 15),
+            new Bai157(new double[] {1.5, 2.3, 4.8, 3.1}),
+            new Bai158(new double[] {1.5, 2.3, 4.8, 3.1}),
+            new Bai159(new int[] {1999, 2002, 2003, 2004}),
+            new Bai159(new int[] {1999, 2002, 2003, 2004}),
+            new Bai160(new int[] {-2, -1, 0, 1, 2}),
+            new Bai161(new int[] {1, 5, 10, 20, 30}, 5, 20),
+            new Bai162(new int[] {2, 3, 6, 9}),
+            new Bai163(new int[] {4, 9, 15}),
+            new Bai164(new int[] {12321, 12345, 67876}),
+            new Bai165(new int[] {1234, 5678, 9012}),
+            new Bai166(new int[] {1, 2, 4, 8}),
+            new Bai167(new int[] {135, 357, 579}),
+            new Bai168(new int[] {5, 10, 15}),
+            new Bai169(new int[] {2, 6, 8, 10}),
+            new Bai170(new int[] {7, 14, 21}),
+        };
 
+
+        foreach (var exercise in exercises)
+        {
+            Console.WriteLine($"Kết quả: {exercise.Execute()}");
+        }
 
 
 
