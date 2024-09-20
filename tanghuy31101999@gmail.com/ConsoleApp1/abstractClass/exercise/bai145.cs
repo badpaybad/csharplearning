@@ -7,17 +7,18 @@ using abclass;
 
 namespace abstractClass.exercise
 {
-    public class Bai144 : AbstractClass
+    public class Bai145 : AbstractClass
     {
 
         public override void Run()
         {
             int[] array = ArrayInt.InputArray();
 
-            int firstPrime = FindFirstValue(array);
-            Console.WriteLine("Ket qua: " + firstPrime);
+            int firstPerfectNumber = FindFirstValue(array);
+
+            Console.WriteLine("Ket qua: " + firstPerfectNumber);
         }
-       
+
 
         private int FindFirstValue(int[] array)
         {
@@ -37,19 +38,29 @@ namespace abstractClass.exercise
         private bool IsPrime(int number)
         {
             if (number <= 1) return false;
-            if (number <= 3) return true;
-            if (number % 2 == 0 || number % 3 == 0) return false;
 
-            for (int i = 5; i * i <= number; i += 6)
+            int sum = 1;
+
+            for (int i = 2; i <= Math.Sqrt(number); i++)
             {
-                if (number % i == 0 || number % (i + 2) == 0)
-                    return false;
+                if (number % i == 0)
+                {
+                    if (i == number / i)
+                    {
+                        sum += i;
+                    }
+                    else
+                    {
+                        sum += i + number / i;
+                    }
+                }
             }
 
-            return true;
+            return sum == number;
         }
 
-        // Method to run input/output logic
+        
 
+       
     }
 }
