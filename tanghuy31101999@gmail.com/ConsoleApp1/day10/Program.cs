@@ -7,8 +7,6 @@ public class SessionOne {
     static void Main(string[] args){
     double[] arrayDouble = { 1.5, 2.8, 3.1, 0.9, 9, 9.4, 9.3 };
     int[] arrayInt = { 12, 123, 2342, 123 };
-    int itemInt = 112;
-    double itemDouble = 1;
 
 
         Console.WriteLine($"bai tap 122: {bai122(arrayDouble)}");
@@ -36,7 +34,20 @@ public class SessionOne {
         Console.WriteLine($"bai tap 133: {bai133(arrayDouble)}");
 
         Console.WriteLine($"bai tap 134: {bai134(arrayDouble)}");
-}
+
+        Console.WriteLine($"bai tap 135: {bai135(arrayDouble)}");
+
+        Console.WriteLine($"bai tap 136: {bai136(arrayInt)}");
+
+        Console.WriteLine($"bai tap 137: {bai137(arrayInt)}");
+
+        Console.WriteLine($"bai tap 138: {bai138(arrayInt)}");
+
+        Console.WriteLine($"bai tap 139: {bai139(arrayInt)}");
+
+        Console.WriteLine($"bai tap 140: {bai140(arrayDouble)}");
+
+    }
 
     public static double bai122(double[] x)
     {
@@ -346,23 +357,25 @@ public class SessionOne {
     }
 
 
-    public static double bai141(double[] x)
-    {
-        //int length = x.Length;
-        //double maxValue = double.MaxValue;
-        //int position = -1;
+    //public static double bai141(double[] x)
+    //{
+    //    //int length = x.Length;
+    //    //double maxValue = double.MaxValue;
+    //    //int position = -1;
 
-        //for (int i = 0; i < length; i++)
-        //{
-        //    if (x[i] > 0 && data < maxValue)
-        //    {
-        //        data = x[i];
-        //        position = i;
-        //    }
-        //}
+    //    //for (int i = 0; i < length; i++)
+    //    //{
+    //    //    if (x[i] > 0 && data < maxValue)
+    //    //    {
+    //    //        data = x[i];
+    //    //        position = i;
+    //    //    }
+    //    //}
 
-        //return data;
-    }
+    //    return x;
+    //}
+
+
 
 
 }
