@@ -336,7 +336,7 @@ public class SessionOne {
 
         for (int i = 0; i < length; i++)
         {
-            if (x[i] > 0 && x[i] < data)
+            if (x[i] > 0 && x[i] < maxValue)
             {
                 data = x[i];
             }
@@ -348,20 +348,20 @@ public class SessionOne {
 
     public static double bai141(double[] x)
     {
-        int length = x.Length;
-        double maxValue = double.MaxValue;
-        int position = -1;
+        //int length = x.Length;
+        //double maxValue = double.MaxValue;
+        //int position = -1;
 
-        for (int i = 0; i < length; i++)
-        {
-            if (x[i] > 0 && data < maxValue)
-            {
-                data = x[i];
-                position = i;
-            }
-        }
+        //for (int i = 0; i < length; i++)
+        //{
+        //    if (x[i] > 0 && data < maxValue)
+        //    {
+        //        data = x[i];
+        //        position = i;
+        //    }
+        //}
 
-        return data;
+        //return data;
     }
 
 
