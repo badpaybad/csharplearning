@@ -124,5 +124,14 @@ class Program
         //
         // Homework bai169 = new Bai169();
         // bai169.Run();
+
+		// Homework bai170 = new Bai170();
+		 //bai170.Run();
+
+		// Homework bai171 = new Bai171();
+		// bai171.Run();
+
+		// Homework bai172 = new Bai172();
+		// bai172.Run();
     }
 }
