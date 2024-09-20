@@ -137,12 +137,12 @@ double bai15(int n){
        return sum;
     }
 
-    double sum = 1;
     double denomirator = 0;
     for (int i = 1; i <= n; i++){
         denomirator += i;
-        rs += 1.0 / denomirator;
+        sum += 1.0 / denomirator;
     }
     return sum;
-    Console.WriteLine($"Bài số 15: Kết quả là {rs}");
  }
+
+Console.WriteLine($"bai tap 15: {bai15(6)}");
