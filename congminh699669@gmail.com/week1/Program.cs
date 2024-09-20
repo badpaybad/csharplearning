@@ -151,17 +151,115 @@ double excercise13(int x, int n) {
 // lession 14
 double excercise14(int x, int n) {
     double sum = 0;
-    int currentPower = x; // Bắt đầu với x^1
+    int currentPower = x;
 
     for (int i = 1; i <= n; i++)
     {
         sum += currentPower;
-        currentPower *= x * x; // Tính x^(2i+1) bằng cách nhân thêm x^2 vào x^(2i-1)
+        currentPower *= x * x;
     }
 
     return sum;
 }
 
+// lession 15
+double excercise15(int n) {
+    double totalSum = 1.0;
+    int partialSum = 1;  
+
+    for (int i = 2; i <= n; i++)
+    {
+        partialSum += i; 
+        totalSum += 1.0 / partialSum; 
+    }
+
+    return totalSum;
+}
+
+// lession 16
+double excercise16(double x, int n) {
+    double totalSum = x;  
+    int partialSum = 1;   
+
+    for (int i = 2; i <= n; i++)
+    {
+        partialSum += i; 
+        totalSum += Math.Pow(x, i) / partialSum; 
+    }
+
+    return totalSum;
+}
+
+// lession 17
+double excercise17(double x, int n){
+    double totalSum = x;
+    double factorial = 1;
+
+    for (int i = 2; i <= n; i++)
+    {
+        factorial *= i;
+        totalSum += Math.Pow(x, i) / factorial;
+    }
+
+    return totalSum;
+}
+
+// lession 18
+double excercise18(double x, int n){
+    double totalSum = 1;
+    double factorial = 1;
+
+    for (int i = 1; i <= n; i++)
+    {
+        factorial *= (2 * i - 1) * (2 * i);
+        totalSum += Math.Pow(x, 2 * i) / factorial;
+    }
+
+    return totalSum;
+}
+
+double excercise19(double x, int n){
+    double totalSum = 1 + x;
+    double factorial = 1;
+
+    for (int i = 1; i <= n; i++)
+    {
+        factorial *= (2 * i) * (2 * i + 1);
+        totalSum += Math.Pow(x, 2 * i + 1) / factorial;
+    }
+
+    return totalSum;
+}
+
+List<int> excercise20(int n)
+{
+    List<int> result = [];
+    for (int i = 1; i <= Math.Sqrt(n); i++)
+    {
+        if (n % i == 0)
+        {
+            result.Add(i);
+            if (i != n / i)
+            {
+                result.Add(n / i);
+            }
+        }
+    }
+    result.Sort();
+    return result;
+}
+
+int excercise21(int n){
+    int sum = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            sum += i;
+        }
+    }
+    return sum;
+}
 
 Console.WriteLine("Result exercise 1: " + excercise1(1000000));
 Console.WriteLine("Result exercise 2: " + excercise2(3));
@@ -177,3 +275,10 @@ Console.WriteLine("Result exercise 11: " + excercise11(3));
 Console.WriteLine("Result exercise 12: " + excercise12(2,3));
 Console.WriteLine("Result exercise 13: " + excercise13(2,3));
 Console.WriteLine("Result exercise 14: " + excercise14(2,3));
+Console.WriteLine("Result exercise 15: " + excercise15(5));
+Console.WriteLine("Result exercise 16: " + excercise16(2,5));
+Console.WriteLine("Result exercise 17: " + excercise17(2,5));
+Console.WriteLine("Result exercise 18: " + excercise18(2,5));
+Console.WriteLine("Result exercise 19: " + excercise19(2,5));
+Console.WriteLine("Result exercise 20: " + string.Join(", ", excercise20(10)));
+Console.WriteLine("Result exercise 21: " + excercise21(10));

@@ -261,4 +261,149 @@ public class Program
 
             return sum;
         }
+        //bai22
+        static long Bai22(int n)
+        {
+            long product = 1;
+
+            for (int i = 1; i <= n; i++)
+            {
+                if (n % i == 0)
+                {
+                    product *= i;
+                }
+            }
+
+            return product;
+        }
+        //bai23
+        static long Bai23(int n)
+        {
+            long product = 0;
+
+            for (int i = 1; i <= n; i++)
+            {
+                if (n % i == 0)
+                {
+                    product++;
+                }
+            }
+
+            return product;
+        }
+        //bai24
+        static int[] bai24(int n)
+        {
+            List<int> array = new List<int>();
+
+            for (int i = 1; i <= n; i++)
+            {
+                if (n % i == 0 && i % 2 != 0)
+                {
+                    array.Add(i);
+                }
+            }
+
+            return array.ToArray();
+        }
+        //bai25
+        static double bai25(int n)
+        {
+            double sum = 0;
+
+            for (int i = 1; i <= n; i++)
+            {
+                if (n % i == 0 && i % 2 == 0)
+                {
+                    sum += i;
+                }
+            }
+
+            return sum;
+        }
+        //bai26
+        static double Bai26(int n)
+        {
+            double sum = 1;
+
+            for (int i = 1; i <= n; i++)
+            {
+                if (n % i == 0 && i % 2 != 0)
+                {
+                    sum *= i;
+                }
+            }
+            return sum;
+        }
+        //bai27
+        static double bai27(int n)
+        
+        double soluong = 0;
+
+        for (int i = 1; i <= n; i++)
+        {
+            if (n % i == 0 && i % 2 == 0)
+            {
+                soluong++;
+            }
+        }
+
+        return soluong;
+        
+        //bai28
+        static int Bai28(int n)
+        
+        int sum = 0;
+
+        for (int i = 1; i < n; i++)
+        {
+            if (n % i == 0)
+            {
+                sum += i;
+            }
+        }
+
+        return sum;
+        
+        //bai29
+        static int bai29(int n)
+        
+        int largestOdd = 0;
+
+        for (int i = 1; i <= n; i++)
+        {
+            if (n % i == 0 && i % 2 != 0)
+            {
+                if (i > largestOdd)
+                {
+                    largestOdd = i;
+                }
+            }
+        }
+
+        return largestOdd;
+        
+        //bai30
+        static string Bai30(int n)
+        
+
+        int sum = 0;
+
+        for (int i = 1; i <= n / 2; i++)
+        {
+            if (n % i == 0)
+            {
+                sum += i;
+            }
+        }
+
+        if (sum == n)
+        {
+            return n + " là số hoàn thiện";
+        }
+        else
+        {
+            return n + " là số không hoàn thiện";
+        }
+        }
 
