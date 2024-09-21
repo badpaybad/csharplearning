@@ -8,11 +8,15 @@ namespace HelloWorld
     static void Main(string[] args)
     {
       Console.WriteLine("Hello World!");    
-      variables();
-      dataType();
-      typeCasting();
-      userInput();
-      operatior();
+      // variables();
+      // dataType();
+      // typeCasting();
+      // userInput();
+      // operatior();
+      // math();
+      // loop();
+      // exeArray();
+      mangdachieu();
     }
 
     static void variables(){
@@ -111,7 +115,118 @@ namespace HelloWorld
         Console.WriteLine(numberA);
         Console.WriteLine(numberB);
     }
+
+    static void math(){
+      Math.Max(5, 10);
+      Math.Min(5, 10);
+      Math.Sqrt(64);
+      Math.Abs(-4.7);
+      Math.Round(9.99);
+    }
+
+    static void loop(){
+      // if
+      int x = 20;
+      int y = 18;
+      if (x > y) 
+      {
+        Console.WriteLine("x is greater than y");
+      }
+
+      int time = 20;
+      string result = (time < 18) ? "Good day." : "Good evening.";
+      Console.WriteLine(result);
+
+      // switch
+      int day = 4;
+      switch (day) 
+      {
+        case 1:
+          Console.WriteLine("Monday");
+          break;
+        case 2:
+          Console.WriteLine("Tuesday");
+          break;
+        case 3:
+          Console.WriteLine("Wednesday");
+          break;
+        case 4:
+          Console.WriteLine("Thursday");
+          break;
+        case 5:
+          Console.WriteLine("Friday");
+          break;
+        case 6:
+          Console.WriteLine("Saturday");
+          break;
+        case 7:
+          Console.WriteLine("Sunday");
+          break;
+      }
+
+      // while
+      int index = 0;
+      while (index < 5) 
+      {
+        Console.WriteLine(index);
+        index++;
+      }
+
+      // do while
+      int check = 0;
+      do 
+      {
+        Console.WriteLine(check);
+        check++;
+      }
+      while (check < 5);
+
+      // for
+      for (int i = 0; i < 5; i++) 
+      {
+        Console.WriteLine(i);
+      }
+
+      // Break and Continue
+      for (int i = 0; i < 10; i++) 
+      {
+        if (i == 4) 
+        {
+          break;
+        }
+        Console.WriteLine(i);
+      }
+
+      for (int i = 0; i < 10; i++) 
+      {
+        if (i == 4) 
+        {
+          continue;
+        }
+        Console.WriteLine(i);
+      }
+    }
  
- 
+    static void exeArray(){
+      string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+      int[] myNum = {10, 20, 30, 40};
+      foreach (string i in cars) 
+      {
+        Console.WriteLine(i);
+      }
+
+      // sort Array.sort()
+      Array.Sort(myNum);
+    }
+
+    static void mangdachieu(){
+      int[,] numbers = { {1, 4, 2}, {3, 6, 8} };
+      Console.WriteLine(numbers[1, 0]);  // Outputs 2
+
+      foreach (int i in numbers)
+      {
+        Console.WriteLine(i);
+      } 
+    }
   }
 }
