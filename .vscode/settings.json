@@ -1,3 +1,8 @@
 {
-    "dotnet.defaultSolution": "all.sln"
+    "dotnet.defaultSolution": "all.sln",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#332459",
+        "titleBar.activeBackground": "#47327C",
+        "titleBar.activeForeground": "#FBFAFD"
+    }
 }
