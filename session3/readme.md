@@ -49,6 +49,7 @@ https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=ne
 
                 6. Call to other api (httpclient) https://learn.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-8.0
 
+                7. linq https://learn.microsoft.com/en-us/dotnet/csharp/linq/get-started/write-linq-queries  https://www.tutorialsteacher.com/linq/linq-query-syntax  
 
 # Details init prj : xem prj mẫu ở folder ./session3/testapi 
 
