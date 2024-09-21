@@ -33,3 +33,5 @@ https://nugets.airobotics.vn/?uid=user&pwd=123%40123
 https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli
 
 # EF with mongodb 
+
+# Details
