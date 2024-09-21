@@ -201,6 +201,7 @@ cloud.core đã wrap mongodb driver thành dạng EF để dùng xem mẫu phía
                     await db.AdsPlace.Delete(placeId);
                 }
 
+# Cần mỗi người tự tạo git riêng hôm tới a sẽ chạy từng máy tính của ae
 
 # Bai tap mongodb :
 
