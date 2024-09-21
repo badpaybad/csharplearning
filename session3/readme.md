@@ -203,7 +203,9 @@ cloud.core đã wrap mongodb driver thành dạng EF để dùng xem mẫu phía
 
 # Cần mỗi người tự tạo git riêng hôm tới a sẽ chạy từng máy tính của ae
 
-# Bai tap mongodb :
+Không cần mỗi ngày làm 3 bài tập nữa, chỉ cần hoàn thành các yêu cầu bài tập phía dưới
+
+## Bai tap mongodb :
 
 
 mỗi người tự tạo db riêng dựa vào connection string .../your database name/?...
@@ -212,7 +214,7 @@ tạo collection tên là : VersionControl có các property { Id: ObjectId, Nam
                     viết api crud 
                     
 
-# Bài tập về KỸ THUẬT TÍNH TỔNG cần làm api để đưa request có response ( tự phân tích đầu bài, đâu là input đâu là output và làm api)
+## Bài tập về KỸ THUẬT TÍNH TỔNG cần làm api để đưa request có response ( tự phân tích đầu bài, đâu là input đâu là output và làm api)
 
                     210.Tính tổng các giá trị có chữ số đầu tiên là chữ số chẵn có trong mảng 
                     các số nguyên (tongdauchan).
