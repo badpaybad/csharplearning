@@ -16,7 +16,7 @@ namespace abstractClass.exercise
 
             double x = 2;
 
-            double value = ((array, x);
+            double value = FindValue(array, x);
 
             Console.WriteLine("Ket qua: " + value);
         }
