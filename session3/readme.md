@@ -26,7 +26,7 @@ https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspne
 
 https://www.nuget.org/
 
-https://nugets.airobotics.vn/?uid=user&pwd=123%40123
+https://nugets.airobotics.vn/
 
 # EF 
 
@@ -34,4 +34,20 @@ https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=ne
 
 # EF with mongodb 
 
-# Details
+# Details init prj
+
+cmd create api prj
+
+                dotnet new list
+
+                dotnet new webapi -n testapi
+                cd testapi
+
+cmd add nuget source: https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source
+
+
+                dotnet nuget add source https://nugets.airobotics.vn/v3/index.json -n omt -u myUsername -p myPassword 
+
+cmd add nuget package
+
+                
