@@ -97,6 +97,38 @@ public class Class1: exerciseNeedUse
         double[] arrayExercise154 = { 10, -6, 11, 6, -30, 22, 11, -10 };
         Console.WriteLine(exercise154(arrayExercise154));
 
+        Console.WriteLine("Exercise 155 result:");
+        double[] arrayExercise155 = { 10, -6, 11, 6, -155, 22, 300, -10 };
+        Console.WriteLine(exercise155(arrayExercise155, 5));
+
+        Console.WriteLine("Exercise 156 result:");
+        double[] arrayExercise156 = { 10, -6, 11, 6, -155, 22, 300, -10 };
+        Console.WriteLine(exercise156(arrayExercise156, 5));
+
+        Console.WriteLine("Exercise 157 result:");
+        double[] arrayExercise157 = { 10, -6, 11, 6, -155, 22, 300, -10 };
+        Console.WriteLine(exercise157(arrayExercise157));
+
+        Console.WriteLine("Exercise 158 result:");
+        double[] arrayExercise158 = { 10, -6, 11, 6, -155, 22, 300, -10 };
+        Console.WriteLine(exercise158(arrayExercise158));
+
+        Console.WriteLine("Exercise 159 result:");
+        double[] arrayExercise159 = { 10, -6, 11, 6, -155, 22, 2004, -10 };
+        Console.WriteLine(exercise159(arrayExercise159));
+
+        Console.WriteLine("Exercise 160 result:");
+        double[] arrayExercise160 = { 10, -6, 11, 6, -155, 22, 2003, -0.9 };
+        Console.WriteLine(exercise160(arrayExercise160));
+
+        Console.WriteLine("Exercise 161 result:");
+        int[] arrayExercise161 = { 10, -6, 11, 6, -155, 22, 2003 };
+        Console.WriteLine(exercise161(arrayExercise161, 200, 700) == 0 ? 200 : exercise161(arrayExercise161, 200, 700));
+
+        Console.WriteLine("Exercise 162 result:");
+        int[] arrayExercise162 = { -1, 0, -1, 1, 155, 155, 2003 };
+        Console.WriteLine(exercise162(arrayExercise162));
+
 
         Console.ReadLine();
     }
@@ -411,6 +443,72 @@ public class Class1: exerciseNeedUse
     {
         int viTriAmLonNhat = Array.IndexOf(numberDouble, numberDouble.Where(num => num < 0).DefaultIfEmpty(double.NegativeInfinity).Max());
         return viTriAmLonNhat = viTriAmLonNhat < 0 ? -1 : viTriAmLonNhat;
+    }
+
+    //exercise 155
+    static double exercise155(double[] numberDouble, double x)
+    {
+        double giaTriXaNhat = numberDouble.MaxBy(y => Math.Abs(y - x));
+        return giaTriXaNhat;
+    }
+
+    //exercise 156
+    static double exercise156(double[] numberDouble, double x)
+    {
+        double giaTriGanNhat = numberDouble.MinBy(y => Math.Abs(y - x));
+        return giaTriGanNhat;
+    }
+
+    //exercise 157
+    static Tuple<double,double> exercise157(double[] numberDouble)
+    {
+        double min = numberDouble.Min();
+        double max = numberDouble.Max();
+
+        return Tuple.Create(min, max);
+    }
+
+    //exercise 158
+    static Tuple<double, double> exercise158(double[] numberDouble)
+    {
+        double max = numberDouble.Max(Math.Abs);
+        double min = -max;
+
+        return Tuple.Create(min, max);
+    }
+
+    //exercsie 159
+    static double exercise159(double[] numberDouble)
+    {
+        double result = numberDouble.FirstOrDefault(x => x > 2003);
+        return result;
+    }
+
+    //exercise 160
+    static double exercise160(double[] numberDouble)
+    {
+        double result = numberDouble.LastOrDefault(x => x < 0 && x > -1);
+        return result;
+    }
+
+    //exercise 161
+    static int exercise161(int[] numberInt, int x, int y)
+    {
+        int result = numberInt.FirstOrDefault(n => n > x && n < y);
+        return result;
+    }
+
+    //exercise 162
+    static int exercise162(int[] arr)
+    {
+        for (int i = 1; i < arr.Length - 1; i++)
+        {
+            if (arr[i] == arr[i - 1] * arr[i + 1])
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 }
 
