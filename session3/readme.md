@@ -50,7 +50,7 @@ https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=ne
                 6. Call to other api (httpclient) https://learn.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-8.0
 
 
-# Details init prj
+# Details init prj : xem prj mẫu ở folder ./session3/testapi 
 
 cmd create api prj
 
