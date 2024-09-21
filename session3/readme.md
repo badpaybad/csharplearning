@@ -144,7 +144,7 @@ cloud.core đã wrap mongodb driver thành dạng EF để dùng xem mẫu phía
                 using System.Collections.Generic;
                 using System.Collections.Concurrent;
 
-                ... select
+                ... select : tham khảo linq https://learn.microsoft.com/en-us/dotnet/csharp/linq/get-started/write-linq-queries  https://www.tutorialsteacher.com/linq/linq-query-syntax  
 
                 using (var db = new AdsMongoDbContext())
                 {
