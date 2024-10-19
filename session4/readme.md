@@ -13,7 +13,31 @@ https://docs.google.com/drawings/d/19-E3ReQwbfu64FO0E03AlCG8boJPPVu6LfoUSc3jhVk/
                 Thay vì xài Thead.Sleep thì xài await Task.Delay
 
 
-# linq 
-
 # code design concept
 
+https://drive.google.com/file/d/1tANDh8SvxsZaM9xBYI69cEZ378SEtEJH/view?usp=sharing 
+
+Event bus: pub sub 
+
+Queue: 
+
+# linq 
+
+Các chú ý
+
+- Nếu tính toán được trước không để vào phần query
+
+                nghiêm cấm vd 
+                
+                dbcontext.Items1.Where(i=>i.num > (100/3)  + a && i.created> DateTime.Now.AddDay(1)).Select (...) ...
+                đúng 
+                
+                 var condi1= (100/3)+a ; var tommorow= DateTime.Now.AddDay(1) ; dbcontext.Itém1.Where(i=>i.num>condi1 && i.created > tommorow)...
+
+- Nếu dùng partent repository thì repository phải trả ra là object đã đc instance : vd List, Object ... . Không được trả ra interface vd IQueryable<Class1> getlist()
+
+
+# Bài tập:
+
+Dùng các cấu trúc dữ liệu sẵn của c#: queue, dictionary , list ...
+để triển khai pub sub
