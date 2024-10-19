@@ -19,9 +19,14 @@ Thay vì xài Thead.Sleep thì xài await Task.Delay
 
 https://drive.google.com/file/d/1tANDh8SvxsZaM9xBYI69cEZ378SEtEJH/view?usp=sharing 
 
-Event bus: pub sub 
+Event bus: pub sub , queue , stack
 
-Queue: 
+Pub sub hiểu cơ bản về implement code: 
+
+- Từng consumer Đăng ký các hàm xử lý cho 1 topic A
+- khi 1 publisher push data lên topic A
+- Tất cả các consumer sẽ nhận đươc cùng data vừa publish
+
 
 # linq 
 
