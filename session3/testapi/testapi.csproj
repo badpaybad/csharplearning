@@ -4,14 +4,41 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="cloud.core" Version="1.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
-    <PackageReference Include="MongoDB.Driver" Version="2.29.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.1.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.25.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../testapi.sampledbmanipulation/testapi.sampledbmanipulation.csproj" />
+  </ItemGroup>
+
+
+  
+  <ItemGroup>
+    <None Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="uploads\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
+    <None Include="Views\**\*.cshtml">
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

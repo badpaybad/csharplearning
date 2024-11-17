@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Collections.Concurrent;
 
 
-namespace testapi.Namespace;
+namespace testapi.Apis;
 
 [Route("api/[controller]")]
 [ApiController]
