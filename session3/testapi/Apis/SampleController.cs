@@ -21,6 +21,7 @@ namespace testapi.Apis;
 
 [Route("api/[controller]")]
 [ApiController]
+//[CustomAuthorization] //todo: must do your own auth
 public class SampleController : ControllerBase
 {
     [Route("GetAll")]
