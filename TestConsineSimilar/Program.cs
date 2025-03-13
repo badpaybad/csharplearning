@@ -6,9 +6,7 @@ using System.Linq;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
-var t1 = Stopwatch.StartNew();
 TestCosine();
-Console.WriteLine(t1.ElapsedMilliseconds);
 
 static void TestCosine()
 {
@@ -27,6 +25,8 @@ static void TestCosine()
     // Tạo query vector
     double[] query = GenerateRandomVector(vectorSize, rand);
 
+
+    var t1 = Stopwatch.StartNew();
     // Tính toán Cosine Similarity cho từng vector
     double[] similarities = new double[numVectors];
     for (int i = 0; i < numVectors; i++)
@@ -44,6 +44,7 @@ static void TestCosine()
     // Lấy top-N vector giống nhất (sắp xếp giảm dần)
     int[] topNIndices = GetTopNSimilarVectors(similarities, topN);
 
+    Console.WriteLine(t1.ElapsedMilliseconds);
     // In kết quả
     Console.WriteLine("Top " + topN + " vectors giống nhất:");
     for (int i = 0; i < topN; i++)
