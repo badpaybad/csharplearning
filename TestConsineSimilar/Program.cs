@@ -26,7 +26,7 @@ static void TestCosine()
     double[] query = GenerateRandomVector(vectorSize, rand);
 
 
-    var t1 = Stopwatch.StartNew();
+    var timeCalculateCompareConsine = Stopwatch.StartNew();
     // Tính toán Cosine Similarity cho từng vector
     double[] similarities = new double[numVectors];
     for (int i = 0; i < numVectors; i++)
@@ -35,7 +35,7 @@ static void TestCosine()
     }
     // Parallel.For(0, numVectors, new ParallelOptions
     // {
-    //     MaxDegreeOfParallelism = 16
+    //     MaxDegreeOfParallelism = 1
     // }, i =>
     // {
     //     similarities[i] = CosineSimilarity(data[i], query);
@@ -44,7 +44,7 @@ static void TestCosine()
     // Lấy top-N vector giống nhất (sắp xếp giảm dần)
     int[] topNIndices = GetTopNSimilarVectors(similarities, topN);
 
-    Console.WriteLine(t1.ElapsedMilliseconds);
+    Console.WriteLine(timeCalculateCompareConsine.ElapsedMilliseconds);
     // In kết quả
     Console.WriteLine("Top " + topN + " vectors giống nhất:");
     for (int i = 0; i < topN; i++)
